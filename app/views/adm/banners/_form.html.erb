@@ -1,0 +1,31 @@
+<%= form_for(@adm_banner) do |f| %>
+  <% if @adm_banner.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@adm_banner.errors.count, "error") %> prohibited this adm_banner from being saved:</h2>
+
+      <ul>
+      <% @adm_banner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo, class: "form-control" %>
+  </div>
+  <div class="col-md-8">
+    <%= f.label :imagem %><br>
+    <%= f.text_field :imagem, class: "form-control" %>
+  </div>
+  <div class="col-md-8">
+    <%= f.label :link %><br>
+    <%= f.text_field :link, class: "form-control"%>
+  </div>
+  <div class="col-md-8">
+    <%= f.submit 'Cadastrar', class: "btn btn-primary"  %>
+  </div>
+  </div>
+<% end %>

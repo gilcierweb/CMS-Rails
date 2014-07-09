@@ -1,0 +1,35 @@
+<h1>Home#noticias</h1>
+<p>Find me in app/views/home/noticias.html.erb</p>
+<% @noticias.each do |noticia| %>
+
+<h2><%= noticia.titulo %></h2>
+<p><%= noticia.subtitulo.truncate(27, separator: /\s/) %></p>
+<p><%= noticia.content.truncate(27, separator: /\s/) %></p>
+<p><%= noticia.img_capa %></p>
+<p><%= noticia.autor %></p>
+<p><%= link_to 'Show', nil,  class: "btn btn-default" %></p>
+
+<% end %>
+
+<div class="row">    
+            <br />
+            <div class="col-md-2 col-sm-3 text-center">
+              <a href="#" class="story-img"><img class="img-circle" style="width:100px;height:100px" src="101499_data/100.gif"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3>Post Entry Title</h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                  Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                  dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                  Aliquam in felis sit amet augue.</p>
+                  <p class="lead"><button class="btn btn-default">Read More</button></p>
+                  <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+                  <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+                  </div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br /><br />
+            </div>
+</div>

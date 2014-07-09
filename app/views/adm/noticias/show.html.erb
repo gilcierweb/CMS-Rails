@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @adm_noticia.titulo %>
+</p>
+
+<p>
+  <strong>Subtitulo:</strong>
+  <%= @adm_noticia.subtitulo %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @adm_noticia.content %>
+</p>
+
+<p>
+  <strong>Img capa:</strong>
+  <%= @adm_noticia.img_capa %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @adm_noticia.autor %>
+</p>
+
+<%= link_to 'Edit', edit_adm_noticia_path(@adm_noticia), class: "btn btn-primary"  %> |
+<%= link_to 'Back', adm_noticias_path, class: "btn btn-default" %>

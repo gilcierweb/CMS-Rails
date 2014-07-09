@@ -1,0 +1,19 @@
+<p id="notice" class="alert alert-success"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @adm_banner.titulo %>
+</p>
+
+<p>
+  <strong>Imagem:</strong>
+  <%= @adm_banner.imagem %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @adm_banner.link %>
+</p>
+
+<%= link_to 'Edit', edit_adm_banner_path(@adm_banner), class: "btn btn-primary" %> |
+<%= link_to 'Back', adm_banners_path, class: "btn btn-default" %>
