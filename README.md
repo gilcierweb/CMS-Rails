@@ -3,9 +3,13 @@ CMS-Rails
 Projeto Open Source de GilcierWeb
 
 Versão: 1.0.
+
 Data de Criação: Seg, Jul  7 2014 19:36:46.
+
 Autor: GilcierWeb gilcierweb@gmail.com.
+
 Website: http://gilcierweb.com.br.
+
 Licença: http://www.opensource.org/licenses/mit-license.php The MIT License.
 
 Minha intenção com esse projeto é deixar material para as pessoas que estão iniciando com Ruby on Rails terem como exemplo.
