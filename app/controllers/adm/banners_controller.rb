@@ -28,6 +28,13 @@ class Adm::BannersController < ApplicationController
     @adm_banner = Adm::Banner.new(adm_banner_params)
 
     respond_to do |format|
+
+        uploaded_io = params[:adm_banner][:imagem]
+        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+        @adm_banner[:imagem] = uploaded_io.original_filename
+
       if @adm_banner.save
         format.html { redirect_to @adm_banner, notice: 'Banner was successfully created.' }
         format.json { render :show, status: :created, location: @adm_banner }
