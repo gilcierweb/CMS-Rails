@@ -28,6 +28,7 @@ class Adm::NoticiasController < ApplicationController
     @adm_noticia = Adm::Noticia.new(adm_noticia_params)
 
     respond_to do |format|
+     adm_noticia_upload(params[:adm_noticia][:img_capa])
       if @adm_noticia.save
         format.html { redirect_to @adm_noticia, notice: 'Noticia was successfully created.' }
         format.json { render :show, status: :created, location: @adm_noticia }
@@ -71,5 +72,13 @@ class Adm::NoticiasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def adm_noticia_params
       params.require(:adm_noticia).permit(:titulo, :subtitulo, :content, :img_capa, :autor)
+    end
+
+    def adm_noticia_upload(upload)    
+        File.open(Rails.root.join('public', 'uploads', upload.original_filename), 'wb') do |file|
+          file.write(upload.read)
+        end
+        @adm_noticia[:img_capa] = upload.original_filename
+      
     end
 end
