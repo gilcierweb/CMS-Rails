@@ -28,16 +28,16 @@ class Adm::NoticiasController < ApplicationController
     @adm_noticia = Adm::Noticia.new(adm_noticia_params)
 
     respond_to do |format|
-     adm_noticia_upload(params[:adm_noticia][:img_capa])
-      if @adm_noticia.save
-        format.html { redirect_to @adm_noticia, notice: 'Noticia was successfully created.' }
-        format.json { render :show, status: :created, location: @adm_noticia }
-      else
-        format.html { render :new }
-        format.json { render json: @adm_noticia.errors, status: :unprocessable_entity }
-      end
+    # adm_noticia_upload(params[:adm_noticia][:img_capa])
+    if @adm_noticia.save
+      format.html { redirect_to @adm_noticia, notice: 'Noticia was successfully created.' }
+      format.json { render :show, status: :created, location: @adm_noticia }
+    else
+      format.html { render :new }
+      format.json { render json: @adm_noticia.errors, status: :unprocessable_entity }
     end
   end
+end
 
   # PATCH/PUT /adm/noticias/1
   # PATCH/PUT /adm/noticias/1.json
@@ -75,10 +75,10 @@ class Adm::NoticiasController < ApplicationController
     end
 
     def adm_noticia_upload(upload)    
-        File.open(Rails.root.join('public', 'uploads', upload.original_filename), 'wb') do |file|
-          file.write(upload.read)
-        end
-        @adm_noticia[:img_capa] = upload.original_filename
+      File.open(Rails.root.join('public', 'uploads', upload.original_filename), 'wb') do |file|
+        file.write(upload.read)
+      end
+      @adm_noticia[:img_capa] = upload.original_filename
       
     end
-end
+  end

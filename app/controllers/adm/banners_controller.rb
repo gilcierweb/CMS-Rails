@@ -27,15 +27,13 @@ class Adm::BannersController < ApplicationController
   def create
     @adm_banner = Adm::Banner.new(adm_banner_params)
 
-    respond_to do |format|
-
-        uploaded_io = params[:adm_banner][:imagem]
-        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-          file.write(uploaded_io.read)
-        end
-        @adm_banner[:imagem] = uploaded_io.original_filename
+    respond_to do |format|    
 
       if @adm_banner.save
+        if !params[:adm_banner][:imagem].blank?
+          path ='img_banners'
+          @adm_banner[:imagem] = upload_file(path,params[:adm_banner][:imagem])
+        end
         format.html { redirect_to @adm_banner, notice: 'Banner was successfully created.' }
         format.json { render :show, status: :created, location: @adm_banner }
       else
@@ -48,7 +46,11 @@ class Adm::BannersController < ApplicationController
   # PATCH/PUT /adm/banners/1
   # PATCH/PUT /adm/banners/1.json
   def update
-    respond_to do |format|
+    if !params[:adm_banner][:imagem].blank?
+      path ='img_banners'
+      adm_banner_params[:imagem] = upload_file(path,params[:adm_banner][:imagem])
+    end  
+    respond_to do |format| 
       if @adm_banner.update(adm_banner_params)
         format.html { redirect_to @adm_banner, notice: 'Banner was successfully updated.' }
         format.json { render :show, status: :ok, location: @adm_banner }
@@ -62,7 +64,9 @@ class Adm::BannersController < ApplicationController
   # DELETE /adm/banners/1
   # DELETE /adm/banners/1.json
   def destroy
+    File.delete(Rails.root.join('public', 'img_banners',@adm_banner.imagem))
     @adm_banner.destroy
+
     respond_to do |format|
       format.html { redirect_to adm_banners_url, notice: 'Banner was successfully destroyed.' }
       format.json { head :no_content }
@@ -79,4 +83,22 @@ class Adm::BannersController < ApplicationController
     def adm_banner_params
       params.require(:adm_banner).permit(:titulo, :imagem, :link)
     end
+
+    def upload_file(path, param )
+     uploaded_io = param
+     if !File::directory?( Rails.root.join('public',path) )
+      Dir.mkdir( Rails.root.join('public',path), 777)
+    end
+    File.open(Rails.root.join('public',path, sanitize_filename(uploaded_io.original_filename)), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+    return sanitize_filename(uploaded_io.original_filename)
+  end
+
+  def sanitize_filename(file_name)
+  # get only the filename, not the whole path (from IE)
+  just_filename = File.basename(file_name)
+  # replace all none alphanumeric, underscore or perioids with underscore
+  just_filename.gsub(/[^\w\.\_]/,'_')
+end
 end
