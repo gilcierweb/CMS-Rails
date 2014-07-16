@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="GilcierWeb - gilcierweb.com.br - gilcierweb@gmail.com">
-		<title>Cmsrails</title>
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ruby on Rail, GilcierWeb">
+  <meta name="author" content="GilcierWeb - gilcierweb.com.br - gilcierweb@gmail.com">
+  <title>Cmsrails</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head> 
+<body>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <header class="header-title">
+      <hgroup>
+       <h1>CMS Rails - 1.0</h1>
+       <h4>Projeto Open Source de GilcierWeb</h4>
+     </hgroup>
 
-		<%= csrf_meta_tags %>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<header class="header-title">
-						<hgroup>
-							<h1>CMS Rails - 1.0</h1>
-							<h4>Projeto Open Source de GilcierWeb</h4>
-						</hgroup>
+     <%= render 'layouts/menu' %>
 
-						<%= render 'layouts/menu' %>
+     <% if current_page?('/') || current_page?(controller: 'home')%>
+     <%= render 'layouts/banner' %>
+     <% end %>
 
-						<% if current_page?('/') || current_page?(controller: 'home')%>
-						<%= render 'layouts/banner' %>
-						<% end %>
+   </header>
 
-					</header>
+   <section>
+    <%= yield %>
+  </section>
 
-					<section>
-						<%= yield %>
-					</section>
-
-					<footer class="text-center">
-            <hr />
-						<p>
-							Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> - <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
-						<p>
-					</footer>
-				</div>
-			</div>
-		</div>
-		<!--Scripts-->
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	</body>
+  <footer class="text-center">
+    <hr />
+    <p>
+     Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> - <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
+     <p>
+     </footer>
+   </div>
+ </div>
+</div>
+<!--Scripts-->
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
 </html>

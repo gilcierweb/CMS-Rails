@@ -4,7 +4,7 @@ class Adm::NoticiasController < ApplicationController
 
   # GET /adm/noticias
   # GET /adm/noticias.json
-  def index
+  def index   
     @adm_noticias = Adm::Noticia.all
   end
 

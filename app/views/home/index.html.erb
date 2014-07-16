@@ -12,7 +12,7 @@
 	<%= noticia.content.truncate(27, separator: /\s/) %>
 </p>
 <p>
-	<%= noticia.img_capa %>
+	<%= noticia.img_capa %><%= image_tag(  image_path("/uploads/#{noticia.img_capa}"),size: "100x100", alt: "Imagem capa" )%>
 </p>
 <p>
 	<%= noticia.autor %>

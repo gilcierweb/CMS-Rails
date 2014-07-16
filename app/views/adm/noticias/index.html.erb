@@ -18,7 +18,7 @@
       <td><%= adm_noticia.titulo %></td>
       <td><%= adm_noticia.subtitulo.truncate(270, separator: /\s/) %></td>
       <td><%= adm_noticia.content.truncate(270, separator: /\s/) %></td>
-      <td><%= adm_noticia.img_capa %><%= image_tag(  image_path("/uploads/#{adm_noticia.img_capa}"),size: "100x100", alt: "Imagem capa" )%></td>
+      <td><%= adm_noticia.img_capa %><%= image_tag(adm_noticia.img_capa,size: "100x100", alt: "Imagem capa" )%></td>
       <td><%= adm_noticia.autor %></td>
       <td><%= link_to 'Edit', edit_adm_noticia_path(adm_noticia), class: "btn btn-primary" %></td>
       <td><%= link_to 'Destroy', adm_noticia, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>

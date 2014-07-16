@@ -12,14 +12,14 @@
 
   <tbody>
     <% @adm_banners.each do |adm_banner| %>
-      <tr>
-        <td><%= adm_banner.titulo %></td>
-        <td><%= adm_banner.imagem %></td>
-        <td><%= adm_banner.link %></td>
-        <td><%= link_to 'Show', adm_banner, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_adm_banner_path(adm_banner), class: "btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', adm_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-      </tr>
+    <tr>
+      <td><%= adm_banner.titulo %></td>
+      <td><%= image_tag(adm_banner.imagem, size: "100x100", alt: "Imagem capa")%></td>
+      <td><%= adm_banner.link %></td>
+      <td><%= link_to 'Show', adm_banner, class: "btn btn-info" %></td>
+      <td><%= link_to 'Edit', edit_adm_banner_path(adm_banner), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Destroy', adm_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

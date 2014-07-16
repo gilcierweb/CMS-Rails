@@ -1,8 +1,10 @@
-<h2>Banner</h2>
-<% @banners.each do |banner| %>
+ <ul class="rslides">
+  <% @banners.each do |banner| %>
+  <% if banner.link.blank? %>
+  <li><%= image_tag(  banner.imagem,size: "900x300", alt: "Imagem capa" )%></li>
+  <% else %>
+  <li><%= link_to  image_tag(   banner.imagem,size: "900x300", alt: "Imagem capa" ), banner.link, :title => banner.titulo, :target => "_blank" %></li>
+  <% end %>
 
-<h2><%= banner.titulo %></h2>
-<p><%= banner.imagem %></p>
-<p><%= banner.link %></p>
-
-<% end %>
+  <% end %>
+</ul>

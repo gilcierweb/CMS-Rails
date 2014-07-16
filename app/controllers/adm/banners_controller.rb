@@ -30,10 +30,10 @@ class Adm::BannersController < ApplicationController
     respond_to do |format|    
 
       if @adm_banner.save
-        if !params[:adm_banner][:imagem].blank?
-          path ='img_banners'
-          @adm_banner[:imagem] = upload_file(path,params[:adm_banner][:imagem])
-        end
+        # if !params[:adm_banner][:imagem].blank?
+        #   path ='img_banners'
+        #   @adm_banner[:imagem] = upload_file(path,params[:adm_banner][:imagem])
+        # end
         format.html { redirect_to @adm_banner, notice: 'Banner was successfully created.' }
         format.json { render :show, status: :created, location: @adm_banner }
       else
@@ -46,10 +46,10 @@ class Adm::BannersController < ApplicationController
   # PATCH/PUT /adm/banners/1
   # PATCH/PUT /adm/banners/1.json
   def update
-    if !params[:adm_banner][:imagem].blank?
-      path ='img_banners'
-      adm_banner_params[:imagem] = upload_file(path,params[:adm_banner][:imagem])
-    end  
+    # if !params[:adm_banner][:imagem].blank?
+    #   path ='img_banners'
+    #   adm_banner_params[:imagem] = upload_file(path,params[:adm_banner][:imagem])
+    # end  
     respond_to do |format| 
       if @adm_banner.update(adm_banner_params)
         format.html { redirect_to @adm_banner, notice: 'Banner was successfully updated.' }
