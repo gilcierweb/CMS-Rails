@@ -24,6 +24,7 @@ Comandos utilidados até agora no projeto:
 - rails generate uploader noticia
 - rails generate uploader banner
 - rails generate controller Home index sobre noticias noticia_show galerias galeria_show videos contato --no-helpers --no-assets --no-stylesheets 
+- rails generate scaffold Adm/Video titulo:string codigo:integer --no-assets --no-stylesheets --no-helpers
 
 Observações:
 cuidado com os singular e plural na hora de definir os nomes das tabelas ver arquivo /cmsrails/config/initializers/inflections.rb.
