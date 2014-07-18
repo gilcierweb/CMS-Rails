@@ -16,8 +16,12 @@ Minha intenção com esse projeto é deixar material para as pessoas que estão 
 
 Quem quiser contribuir com o projeto entre contato gilcierweb@gmail.com - http://gilcierweb.com.br pra ser adicionado ao projeto.
 
+Instalação do ruby e rails.
+https://gorails.com/setup/ubuntu/14.04.
+
 Comandos utilidados até agora no projeto:
 
+- rails new cmsrails -d mysql
 - rails generate controller Adm/dashboard index --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Banner titulo:string imagem:string link:string --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Noticia titulo:string subtitulo:text content:text img_capa:string autor:string --no-assets --no-stylesheets --no-helpers
