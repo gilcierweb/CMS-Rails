@@ -1,0 +1,26 @@
+<%= form_for(@adm_video) do |f| %>
+<% if @adm_video.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@adm_video.errors.count, "error") %> prohibited this adm_video from being saved:</h2>
+
+  <ul>
+    <% @adm_video.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo, class: "form-control" %>
+  </div>
+  <div class="col-md-8">
+    <%= f.label :codigo %><br />
+    <%= f.text_field :codigo, class: "form-control" %>
+  </div>
+  <div class="col-md-8">
+    <%= f.submit 'Cadastrar' , class: "btn btn-primary"%>
+  </div>
+</div>
+<% end %>

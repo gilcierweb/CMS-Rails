@@ -1,0 +1,2 @@
+module Adm::VideosHelper
+end

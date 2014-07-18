@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @adm_video.titulo %>
+</p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= image_tag("http://i1.ytimg.com/vi/#{@adm_video.codigo}/default.jpg", alt: @adm_video.titulo) %>
+</p>
+
+<%= link_to 'Edit', edit_adm_video_path(@adm_video) %> |
+<%= link_to 'Back', adm_videos_path %>
