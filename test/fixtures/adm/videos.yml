@@ -2,8 +2,8 @@
 
 one:
   titulo: MyString
-  codigo: MyString
+  url_codigo: MyString
 
 two:
   titulo: MyString
-  codigo: MyString
+  url_codigo: MyString

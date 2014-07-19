@@ -72,21 +72,7 @@ class Adm::VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adm_video_params
-      params.require(:adm_video).permit(:titulo, :codigo)
-    end
-    def parse_youtube(url)
-     if !url.blank?
-       regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
-       return  url.match(regex)[1]
-     end
-   end
-   def url_youtube(url)
-     uri = URI.parse(url)
-     uri_params = uri.query
-     if !uri_params['v'].blank?
-      self.codigo = uri_params['v']
-    else
-     self.codigo = uri.path
-   end
- end
-end
+      params.require(:adm_video).permit(:titulo, :url_codigo)
+    end    
+
+  end

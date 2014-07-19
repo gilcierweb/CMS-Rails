@@ -1,7 +1,7 @@
 class Adm::Video < ActiveRecord::Base
-  validates :titulo, :codigo, presence: true
+  validates :titulo, :url_codigo, presence: true
   before_validation(on: [ :create, :update ]) do
-    self.codigo = parse_youtube(codigo) #codigo = params[:adm_video][:codigo]
+    self.url_codigo = parse_youtube(url_codigo) #url_codigo = params[:adm_video][:url_codigo]
   end
 
   private

@@ -18,7 +18,7 @@ class Adm::VideosControllerTest < ActionController::TestCase
 
   test "should create adm_video" do
     assert_difference('Adm::Video.count') do
-      post :create, adm_video: { codigo: @adm_video.codigo, titulo: @adm_video.titulo }
+      post :create, adm_video: { url_codigo: @adm_video.url_codigo, titulo: @adm_video.titulo }
     end
 
     assert_redirected_to adm_video_path(assigns(:adm_video))
@@ -35,7 +35,7 @@ class Adm::VideosControllerTest < ActionController::TestCase
   end
 
   test "should update adm_video" do
-    patch :update, id: @adm_video, adm_video: { codigo: @adm_video.codigo, titulo: @adm_video.titulo }
+    patch :update, id: @adm_video, adm_video: { url_codigo: @adm_video.url_codigo, titulo: @adm_video.titulo }
     assert_redirected_to adm_video_path(assigns(:adm_video))
   end
 
