@@ -11,17 +11,18 @@ class HomeController < ApplicationController
     @noticias = Adm::Noticia.all
   end
 
-  def noticia_show
+  def noticia_view
     @noticia = Adm::Noticia.find(params[:id])
   end
 
   def galerias
   end
 
-  def galeria_show
+  def galeria_view
   end
 
   def videos
+    @videos = Adm::Video.all
   end
 
   def contato

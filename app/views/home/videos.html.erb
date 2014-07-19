@@ -1,2 +1,17 @@
 <h1>Home#videos</h1>
 <p>Find me in app/views/home/videos.html.erb</p>
+
+<div class="row">
+  <% @videos.each do |video| %>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <div class="caption">
+        <p>
+         <%= link_to(image_tag("http://i1.ytimg.com/vi/#{video.url_codigo}/mqdefault.jpg",alt: "Clique para Assistir - #{video.titulo}" ), "http://www.youtube.com/watch?v=#{video.url_codigo}", title: "Clique para Assistir - #{video.titulo}") %>         
+       </p>
+       <h5><%= video.titulo; %></h5>  
+     </div>
+   </div>
+ </div>
+ <% end %>
+</div>
