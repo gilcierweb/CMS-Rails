@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708215132) do
+ActiveRecord::Schema.define(version: 20140716234847) do
 
   create_table "adm_banners", force: true do |t|
     t.string   "titulo"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20140708215132) do
     t.text     "content"
     t.string   "img_capa"
     t.string   "autor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+  
+  create_table "adm_videos", force: true do |t|
+    t.string   "titulo"
+    t.string   "url_codigo",     limit: 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end
