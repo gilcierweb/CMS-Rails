@@ -35,6 +35,7 @@ Comandos utilidados até agora no projeto:
 - rails generate uploader galeria_imagem
 - rails generate scaffold Adm/Video titulo:string url_codigo:string --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Galeria titulo:string descricao:text imagem_capa:string --no-assets --no-stylesheets --no-helpers
+- rails generate scaffold Adm/GaleriasImagem galeria_id:integer imagem:string --no-assets --no-stylesheets --no-helpers
 - rails generate controller Home index sobre noticias noticia_view galerias galeria_view videos contato --no-helpers --no-assets --no-stylesheets  
 - rails generate scaffold Adm/Video titulo:string url_codigo:integer --no-assets --no-stylesheets --no-helpers
 
