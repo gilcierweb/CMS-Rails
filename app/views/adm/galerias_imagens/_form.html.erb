@@ -1,0 +1,25 @@
+<%= form_for(@adm_galerias_imagem) do |f| %>
+  <% if @adm_galerias_imagem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@adm_galerias_imagem.errors.count, "error") %> prohibited this adm_galerias_imagem from being saved:</h2>
+
+      <ul>
+      <% @adm_galerias_imagem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :galeria_id %><br>
+    <%= f.number_field :galeria_id %>
+  </div>
+  <div class="field">
+    <%= f.label :imagem %><br>
+    <%= f.file_field :imagem, multiple: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Adicionar imagens', class: "btn btn-success" %>
+  </div>
+<% end %>

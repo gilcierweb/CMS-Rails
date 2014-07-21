@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @adm_galeria.titulo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @adm_galeria.descricao %>
+</p>
+
+<p>
+ <strong>Imagem capa:</strong>
+ <% if @adm_galeria.imagem_capa.blank? %>
+ <%= image_tag('noimage.png',size: "256x256", alt: "Sem imagem capa", title: "Sem imagem capa" )%>
+ <% else %>
+ <%= link_to image_tag(@adm_galeria.imagem_capa,size: "256x256", alt: "Imagem capa" ), '', :title => 'Imagem capa', :target => "_blank" %>
+ <% end %>
+ 
+</p>
+<%= link_to "Qualificar este restaurante", controller: "galerias_imagens",
+                                           action: "new",
+                                           galeria: @adm_galeria %>
+<%= link_to 'Adicionar imagens', new_adm_galerias_imagem_path(@adm_galeria.id), class: "btn btn-success" %> |
+<%= link_to 'Edit', edit_adm_galeria_path(@adm_galeria), class: "btn btn-primary" %> |
+<%= link_to 'Back', adm_galerias_path, class: "btn btn-default" %>

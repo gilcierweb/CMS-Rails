@@ -8,3 +8,12 @@
 
   <% end %>
 </ul>
+<% content_for :js do %>
+  $(function() {
+   $(".rslides").responsiveSlides({
+     speed: 1500,
+     pause: true,
+     random: true
+   });
+ });
+<% end %> 

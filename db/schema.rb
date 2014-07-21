@@ -11,12 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716234847) do
+ActiveRecord::Schema.define(version: 20140719190941) do
 
   create_table "adm_banners", force: true do |t|
     t.string   "titulo"
     t.string   "imagem"
     t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "adm_galerias", force: true do |t|
+    t.string   "titulo"
+    t.text     "descricao"
+    t.string   "imagem_capa"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "adm_galerias_imagens", force: true do |t|
+    t.integer  "galeria_id"
+    t.string   "imagem"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,10 +45,10 @@ ActiveRecord::Schema.define(version: 20140716234847) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
   create_table "adm_videos", force: true do |t|
     t.string   "titulo"
-    t.string   "url_codigo",     limit: 30
+    t.string   "url_codigo", limit: 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end

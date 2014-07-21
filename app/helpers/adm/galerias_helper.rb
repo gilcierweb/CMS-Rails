@@ -1,0 +1,2 @@
+module Adm::GaleriasHelper
+end

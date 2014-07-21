@@ -5,6 +5,7 @@ class Adm::Video < ActiveRecord::Base
   end
 
   private
+  #  pega só o codigo do link youtube para inserir no banco 
   def parse_youtube(url)
    if !url.blank?
      regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/

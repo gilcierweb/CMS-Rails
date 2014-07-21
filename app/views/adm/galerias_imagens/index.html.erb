@@ -1,0 +1,27 @@
+<h1>Listing adm_galerias_imagens</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Galeria</th>
+      <th>Imagem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @adm_galerias_imagens.each do |adm_galerias_imagem| %>
+    <tr>
+      <td><%= adm_galerias_imagem.galeria_id %></td>
+      <td><%= adm_galerias_imagem.imagem %></td>
+      <td><%= link_to 'Show', adm_galerias_imagem, class: "btn btn-info" %></td>
+      <td><%= link_to 'Edit', edit_adm_galerias_imagem_path(adm_galerias_imagem), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Destroy', adm_galerias_imagem, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Galerias imagem', new_adm_galerias_imagem_path, class: "btn btn-success" %>
