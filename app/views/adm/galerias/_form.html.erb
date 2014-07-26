@@ -18,7 +18,11 @@
   <div class="col-md-8">
     <%= f.label :descricao %><br>
     <%= f.text_area :descricao, class: "form-control" %>
-  </div>  
+  </div>
+    <div class="col-md-8">
+    <%= f.label :imagem %><br>
+    <%= f.file_field :imagem, multiple: true %>
+  </div>
   <div class="col-md-8">
     <%= f.submit 'Cadastrar', class: "btn btn-primary"  %>
   </div>

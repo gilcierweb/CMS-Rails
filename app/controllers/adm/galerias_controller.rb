@@ -26,9 +26,14 @@ class Adm::GaleriasController < ApplicationController
   # POST /adm/galerias.json
   def create
     @adm_galeria = Adm::Galeria.new(adm_galeria_params)
-
     respond_to do |format|
-      if @adm_galeria.save
+      if @adm_galeria.save       
+         # to handle multiple images upload on create
+      if params[:adm_galeria][:imagem]
+        params[:adm_galeria][:imagem].each { |image|
+          @adm_galeria.galerias_imagens.create(imagem: image)
+        }
+      end
         format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully created.' }
         format.json { render :show, status: :created, location: @adm_galeria }
       else

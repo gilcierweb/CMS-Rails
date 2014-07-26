@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :galeria_id %><br>
-    <%= f.number_field :galeria_id %>
+    <%= f.hidden_field :galeria_id, :value => params[:id] %>
   </div>
   <div class="field">
     <%= f.label :imagem %><br>

@@ -2,4 +2,61 @@
 
 <%= render 'form' %>
 
+<div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
+<br />
+
+<div id="container">
+  <a id="pickfiles" href="javascript:;">[Select files]</a> 
+  <a id="uploadfiles" href="javascript:;">[Upload files]</a>
+</div>
+
+
 <%= link_to 'Back', adm_galerias_imagens_path, class: "btn btn-default" %>
+
+<% content_for :js do %>
+$(function(){
+var uploader = new plupload.Uploader({
+runtimes : 'html5,flash,silverlight,html4',
+browse_button : 'pickfiles', // you can pass in id...
+container: document.getElementById('container'), // ... or DOM Element itself
+url : '<%= adm_galerias_imagens_path(@adm_galerias_imagem) %>',
+multipart: true,
+multipart_params: {
+
+"authenticity_token" : '<%= form_authenticity_token %>'
+,
+'<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>',
+'galeria_id': '<%= params[:id] %>'
+},
+flash_swf_url : '/assets/Moxie.swf',
+silverlight_xap_url : '/assets/Moxie.xap',
+file_data_name:"imagem",
+filters : {
+max_file_size : '10mb',
+mime_types: [
+{title : "Image files", extensions : "jpg,gif,png"},
+{title : "Zip files", extensions : "zip"}
+]
+}
+});
+uploader.bind('Init', function(up, params) {
+$('#filelist').html("<div>Current runtime: " + params.runtime + "</div>");
+});
+uploader.bind('FilesAdded', function(up, files) {
+$.each(files, function(i, file) {
+$('#filelist').append(
+'<div id="' + file.id + '">' +
+'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +'</div>'
+);
+});
+});
+uploader.bind('UploadProgress', function(up, file) {
+$('#' + file.id + " b").html(file.percent + "%");
+});
+$('#uploadfiles').click(function(e) {
+uploader.start();
+e.preventDefault();
+});
+uploader.init();
+});
+<% end %> 

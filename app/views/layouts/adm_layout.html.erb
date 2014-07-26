@@ -34,6 +34,9 @@
 			</div>
 		</div>
 		<!--Scripts-->
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>	
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<script type="text/javascript">
+			<%= yield :js %>
+		</script>
 	</body>
 </html>
