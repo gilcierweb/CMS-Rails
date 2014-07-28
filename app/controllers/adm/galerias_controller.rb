@@ -48,6 +48,12 @@ class Adm::GaleriasController < ApplicationController
   def update
     respond_to do |format|
       if @adm_galeria.update(adm_galeria_params)
+           # to handle multiple images upload on create
+      if params[:adm_galeria][:imagem]
+        params[:adm_galeria][:imagem].each { |image|
+          @adm_galeria.galerias_imagens.create(imagem: image)
+        }
+      end
         format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully updated.' }
         format.json { render :show, status: :ok, location: @adm_galeria }
       else

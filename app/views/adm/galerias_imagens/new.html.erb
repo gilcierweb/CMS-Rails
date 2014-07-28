@@ -19,18 +19,17 @@ var uploader = new plupload.Uploader({
 runtimes : 'html5,flash,silverlight,html4',
 browse_button : 'pickfiles', // you can pass in id...
 container: document.getElementById('container'), // ... or DOM Element itself
-url : '<%= adm_galerias_imagens_path(@adm_galerias_imagem) %>',
+url : '<%= adm_galerias_imagens_path %>',
 multipart: true,
+   max_file_size : '10mb',
 multipart_params: {
-
-"authenticity_token" : '<%= form_authenticity_token %>'
-,
+"authenticity_token" : "<%= form_authenticity_token %>",
 '<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>',
-'galeria_id': '<%= params[:id] %>'
+"adm_galerias_imagem[galeria_id]": <%= params[:id] %>
 },
-flash_swf_url : '/assets/Moxie.swf',
-silverlight_xap_url : '/assets/Moxie.xap',
-file_data_name:"imagem",
+//flash_swf_url : '/assets/Moxie.swf',
+//silverlight_xap_url : '/assets/Moxie.xap',
+file_data_name:"adm_galerias_imagem[imagem]",
 filters : {
 max_file_size : '10mb',
 mime_types: [
