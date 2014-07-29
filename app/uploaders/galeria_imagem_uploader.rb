@@ -47,5 +47,11 @@ class GaleriaImagemUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def filename
+  if original_filename
+    @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
+    "#{@name}.#{file.extension}"
+  end
+end
 
 end
