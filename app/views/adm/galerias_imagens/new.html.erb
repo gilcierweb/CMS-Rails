@@ -1,16 +1,14 @@
 <h1>New adm_galerias_imagem</h1>
 
-<%= render 'form' %>
-
 <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
 <br />
 
 <div id="container">
-  <a id="pickfiles" href="javascript:;">[Select files]</a> 
-  <a id="uploadfiles" href="javascript:;">[Upload files]</a>
+  <a class="btn btn-success" id="pickfiles" href="javascript:;">Selecione as imagens</a> 
+  <a class="btn btn-primary" id="uploadfiles" href="javascript:;">Enviar imagens</a>
 </div>
 
-
+<br />
 <%= link_to 'Back', adm_galerias_imagens_path, class: "btn btn-default" %>
 
 <% content_for :js do %>
@@ -45,7 +43,7 @@ uploader.bind('FilesAdded', function(up, files) {
 $.each(files, function(i, file) {
 $('#filelist').append(
 '<div id="' + file.id + '">' +
-'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +'</div>'
+'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <strong></strong>' +'</div>'
 );
 });
 });

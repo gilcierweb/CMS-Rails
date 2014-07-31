@@ -15,10 +15,7 @@ class Adm::GaleriasImagensController < ApplicationController
 
   # GET /adm/galerias_imagens/new
   def new
-    @adm_galerias_imagem = Adm::GaleriasImagem.new
-    #    if !params[:galeria_id].blank?
-    #  @adm_galerias_imagem.adm_galeria = Adm::Galeria.find(params[:galeria_id])
-    #end
+    @adm_galerias_imagem = Adm::GaleriasImagem.new 
   end
 
   # GET /adm/galerias_imagens/1/edit
@@ -27,51 +24,23 @@ class Adm::GaleriasImagensController < ApplicationController
 
   # POST /adm/galerias_imagens
   # POST /adm/galerias_imagens.json
-  def create
-    #abort("teste #{params[:galeria_id]}")
-   # @adm_galerias_imagem = Adm::GaleriasImagem.new(:galeria_id=>params[:galeria_id],:imagem => params[:imagem])
-
-@adm_galerias_imagem = Adm::GaleriasImagem.new(adm_galerias_imagem_params)
-
-    respond_to do |format|
-
-#  if params[:adm_galerias_imagem][:imagem]
-#		  params[:adm_galerias_imagem][:imagem].each { |image|
-#	
-#		   @adm_galerias_imagem.imagem = image
-#		   @adm_galerias_imagem.galeria_id = params[:adm_galerias_imagem][:galeria_id]
-#		  # @adm_galerias_imagem = (:imagem => image, :galeria_id => params[:adm_galerias_imagem][:galeria_id])
-#		   #@adm_galerias_imagemcreate!(:imagem => image, :galeria_id => params[:adm_galerias_imagem][:galeria_id])
-#		  @adm_galerias_imagem.save!
-#		   }
-#		   end
-   #abort("Message goes here")
-      if @adm_galerias_imagem.save
-   
-       #abort("Message goes here#{c} #{t}") #abort = die
-  
-        format.html { redirect_to @adm_galerias_imagem, notice: 'Galerias imagem was successfully created.' }
-        format.json { render :show, status: :created, location: @adm_galerias_imagem }
+  def create   
+	@adm_galerias_imagem = Adm::GaleriasImagem.new(adm_galerias_imagem_params)
+      if @adm_galerias_imagem.save  
+        head :created       
       else
-        format.html { render :new }
-        format.json { render json: @adm_galerias_imagem.errors, status: :unprocessable_entity }
+		head :bad_request      
       end
-		  
-    end
   end
 
   # PATCH/PUT /adm/galerias_imagens/1
   # PATCH/PUT /adm/galerias_imagens/1.json
-  def update
-    respond_to do |format|
+  def update   
       if @adm_galerias_imagem.update(adm_galerias_imagem_params)
-        format.html { redirect_to @adm_galerias_imagem, notice: 'Galerias imagem was successfully updated.' }
-        format.json { render :show, status: :ok, location: @adm_galerias_imagem }
+		head :created       
       else
-        format.html { render :edit }
-        format.json { render json: @adm_galerias_imagem.errors, status: :unprocessable_entity }
-      end
-    end
+		head :bad_request
+      end 
   end
 
 # truncated for brevity.
