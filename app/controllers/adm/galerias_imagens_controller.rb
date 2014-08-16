@@ -11,6 +11,10 @@ class Adm::GaleriasImagensController < ApplicationController
   # GET /adm/galerias_imagens/1
   # GET /adm/galerias_imagens/1.json
   def show
+	 #@adm_galeria = Adm::Galeria
+	@adm_galerias_imagem =Adm::Galeria.find(params[:id]).galerias_imagens.all # @adm_galeria.preload(:galerias_imagens) #joins(:galerias_imagens) 
+	#@adm_galeria = Adm::Galeria.find(params[:id]).galerias_imagens.all
+	#abort('gil');
   end
 
   # GET /adm/galerias_imagens/new
@@ -27,7 +31,7 @@ class Adm::GaleriasImagensController < ApplicationController
   def create   
 	@adm_galerias_imagem = Adm::GaleriasImagem.new(adm_galerias_imagem_params)
       if @adm_galerias_imagem.save  
-        head :created       
+        head :created     
       else
 		head :bad_request      
       end
@@ -37,7 +41,7 @@ class Adm::GaleriasImagensController < ApplicationController
   # PATCH/PUT /adm/galerias_imagens/1.json
   def update   
       if @adm_galerias_imagem.update(adm_galerias_imagem_params)
-		head :created       
+		head :created      
       else
 		head :bad_request
       end 

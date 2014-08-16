@@ -39,5 +39,5 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 #upload 
-gem 'paperclip'
+#gem 'paperclip'
 gem 'carrierwave'

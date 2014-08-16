@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Titulo:</strong>
   <%= @adm_galeria.titulo %>
@@ -19,9 +18,25 @@
  <% end %>
  
 </p>
-<%= link_to "Qualificar este restaurante", controller: "galerias_imagens",
-                                           action: "new",
-                                           galeria: @adm_galeria %>
-<%= link_to 'Adicionar imagens', new_adm_galerias_imagem_path(@adm_galeria.id), class: "btn btn-success" %> |
+
+<%= link_to 'Adicionar imagens', {controller: "galerias_imagens", action: 'new', id: @adm_galeria.id}, class: "btn btn-success" %> |
+<%= link_to 'Edit', edit_adm_galeria_path(@adm_galeria), class: "btn btn-primary" %> |
+<%= link_to 'Back', adm_galerias_path, class: "btn btn-default" %>
+<br /><br />
+<div class="row">
+  <% @adm_galerias_imagem.each do |agi| %>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+   <% if agi.imagem.blank? %>
+   <a href="#" class="thumbnail">     
+     <%= image_tag('noimage.png',size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" )%>
+   </a>
+   <% else %>
+   <%= link_to image_tag(agi.imagem,size: "256x256", alt: "Imagem #{agi.id}", class: "img-responsive" ), '', :title => "Imagem #{agi.id}", :target => "_blank", class: "thumbnail"  %>
+   <% end %>
+ </div>
+ <% end %>
+</div>
+<br />
+<%= link_to 'Adicionar imagens', {controller: "galerias_imagens", action: 'new', id: @adm_galeria.id}, class: "btn btn-success" %> |
 <%= link_to 'Edit', edit_adm_galeria_path(@adm_galeria), class: "btn btn-primary" %> |
 <%= link_to 'Back', adm_galerias_path, class: "btn btn-default" %>

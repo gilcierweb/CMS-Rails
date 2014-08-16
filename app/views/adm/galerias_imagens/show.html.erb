@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_adm_galerias_imagem_path(@adm_galerias_imagem), class: "btn btn-primary" %> |
+<%= link_to 'Back', adm_galerias_imagens_path, class: "btn btn-default" %>
 
-<p>
-  <strong>Galeria:</strong>
-  <%= @adm_galerias_imagem.galeria_id %>
-</p>
-
-<p>
-  <strong>Imagem:</strong>
-  <%= @adm_galerias_imagem.imagem %>
-</p>
+<br /><br />
+<div class="row">
+  <% @adm_galerias_imagem.each do |agi| %>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+   <% if agi.imagem.blank? %>
+   <a href="#" class="thumbnail">     
+     <%= image_tag('noimage.png',size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" )%>
+   </a>
+   <% else %>
+   <%= link_to image_tag(agi.imagem,size: "256x256", alt: "Imagem #{agi.id}", class: "img-responsive" ), '', :title => "Imagem #{agi.id}", :target => "_blank", class: "thumbnail"  %>
+   <% end %>
+ </div>
+ <% end %>
+</div>
+<br />
 
 <%= link_to 'Edit', edit_adm_galerias_imagem_path(@adm_galerias_imagem), class: "btn btn-primary" %> |
 <%= link_to 'Back', adm_galerias_imagens_path, class: "btn btn-default" %>

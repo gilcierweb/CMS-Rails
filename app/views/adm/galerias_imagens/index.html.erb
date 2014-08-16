@@ -13,7 +13,7 @@
     <% @adm_galerias_imagens.each do |adm_galerias_imagem| %>
     <tr>
       <td><%= adm_galerias_imagem.galeria_id %></td>
-      <td><%= adm_galerias_imagem.imagem %></td>
+      <td><%= image_tag(adm_galerias_imagem.imagem, size: "100x100", alt: "Imagem capa")%></td>
       <td><%= link_to 'Show', adm_galerias_imagem, class: "btn btn-info" %></td>
       <td><%= link_to 'Edit', edit_adm_galerias_imagem_path(adm_galerias_imagem), class: "btn btn-primary" %></td>
       <td><%= link_to 'Destroy', adm_galerias_imagem, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>

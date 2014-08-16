@@ -11,6 +11,7 @@ class Adm::GaleriasController < ApplicationController
   # GET /adm/galerias/1
   # GET /adm/galerias/1.json
   def show
+    @adm_galerias_imagem = Adm::Galeria.find(params[:id]).galerias_imagens.all
   end
 
   # GET /adm/galerias/new

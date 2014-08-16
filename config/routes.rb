@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'home/index'
 
   get 'home/sobre'
@@ -15,14 +15,17 @@ Rails.application.routes.draw do
   namespace :adm do
     get 'dashboard/index'
     resources :banners
-    resources :noticias    
+    resources :noticias 
+    resources :videos 
+    resources :galerias
+    resources :galerias_imagens
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
