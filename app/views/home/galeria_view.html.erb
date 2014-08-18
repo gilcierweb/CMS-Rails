@@ -1,0 +1,19 @@
+<h3><%= @galeria.titulo %></h3>
+
+<p><%= @galeria.descricao %></p>
+<hr />
+
+<div class="row">
+  <% @galerias_imagem.each do |agi| %>
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+   <% if agi.imagem.blank? %>
+   <a href="#" class="thumbnail">     
+     <%= image_tag('noimage.png',size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" )%>
+   </a>
+   <% else %>
+   <%= link_to image_tag(agi.imagem,size: "256x256", alt: "Imagem #{agi.id}", class: "img-responsive" ), '', :title => "Imagem #{agi.id}", :target => "_blank", class: "thumbnail"  %>
+   <% end %>
+ </div>
+ <% end %>
+</div>
+<br />

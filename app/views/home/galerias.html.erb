@@ -1,2 +1,20 @@
 <h1>Home#galerias</h1>
 <p>Find me in app/views/home/galerias.html.erb</p>
+<div class="row">
+  <% @galerias.each do |gal| %>
+  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+    <div class="thumbnail">
+     <% if gal.imagem_capa.blank? %>
+     <%= link_to(image_tag('noimage.png', size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" ), { controller: "home", action: "galeria_view", id: gal.id}, :title => gal.titulo) %>
+     <% else %>
+     <%= link_to image_tag(gal.imagem_capa, size: "256x256", alt: "Imagem #{gal.id}", class: "img-responsive" ), { controller: "home", action: "galeria_view", id: gal.id}, :title => gal.titulo %>
+     <% end %>
+     <div class="caption">
+      <h3><%= gal.titulo.truncate(27, separator: /\s/) %></h3>
+      <p><%= gal.descricao.truncate(140, separator: /\s/) %></p>
+      <p><a href="#" class="btn btn-default">Ver Mais</a></p>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>

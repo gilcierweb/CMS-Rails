@@ -1,1 +1,1 @@
-json.extract! @adm_noticia, :id, :titulo, :subtitulo, :content, :img_capa, :autor, :created_at, :updated_at
+json.extract! @adm_noticia, :id, :titulo, :subtitulo, :descricao, :imagem_capa, :autor, :created_at, :updated_at

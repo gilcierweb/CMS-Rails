@@ -2,7 +2,7 @@ CMS-Rails
 =========
 Projeto Open Source de GilcierWeb
 
-Versão: 1.0 alpha.
+Versão: 1.0 Alpha.
 
 Data de Criação: Seg, Jul  7 2014 19:36:46.
 
@@ -29,7 +29,7 @@ Comandos utilidados até agora no projeto:
 - sudo bundle install
 - rails generate controller Adm/dashboard index --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Banner titulo:string imagem:string link:string --no-assets --no-stylesheets --no-helpers
-- rails generate scaffold Adm/Noticia titulo:string subtitulo:text content:text img_capa:string autor:string --no-assets --no-stylesheets --no-helpers
+- rails generate scaffold Adm/Noticia titulo:string subtitulo:text descricao:text img_capa:string autor:string --no-assets --no-stylesheets --no-helpers
 - rails generate uploader noticia
 - rails generate uploader banner
 - rails generate uploader galeria_imagem

@@ -16,9 +16,12 @@ class HomeController < ApplicationController
   end
 
   def galerias
+     @galerias = Adm::Galeria.all
   end
 
   def galeria_view
+     @galeria = Adm::Galeria.find(params[:id])
+     @galerias_imagem = Adm::GaleriasImagem.where(galeria_id: params[:id])
   end
 
   def videos

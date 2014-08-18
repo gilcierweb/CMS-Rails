@@ -1,0 +1,14 @@
+<h3><%= @noticia.titulo %></h3>
+<p><%= @noticia.subtitulo %></p>
+<p>
+  <% if @noticia.imagem_capa.blank? %> 
+  <%= image_tag('noimage.png',size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" )%>
+  <% else %>
+  <%= image_tag(@noticia.imagem_capa, size: "256x256", alt: "Imagem #{@noticia.id}", class: "img-responsive" ) %>
+  <% end %>
+</p>
+<p><%= @noticia.descricao %></p>
+<p><%= @noticia.autor %></p>
+<p><%= @noticia.created_at %></p>
+
+<hr />
