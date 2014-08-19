@@ -12,7 +12,7 @@
      <div class="caption">
       <h3><%= gal.titulo.truncate(27, separator: /\s/) %></h3>
       <p><%= gal.descricao.truncate(140, separator: /\s/) %></p>
-      <p><a href="#" class="btn btn-default">Ver Mais</a></p>
+      <p><%=  link_to 'Ver Mais', { controller: "home", action: "galeria_view", id: gal.id}, class: "btn btn-default" %></p>
     </div>
   </div>
 </div>

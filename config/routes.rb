@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'home/sobre'
 
   get 'home/noticias'
+  get 'home/noticia_view/:id', to: 'home#noticia_view'
 
   get 'home/galerias'
+  get 'home/galeria_view/:id', to: 'home#galeria_view'
 
   get 'home/videos'
 
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
 
   namespace :adm do
     get 'dashboard/index'
+    get 'galerias/imagem_capa/:id', to: 'galerias#imagem_capa'
     resources :banners
     resources :noticias 
     resources :videos 

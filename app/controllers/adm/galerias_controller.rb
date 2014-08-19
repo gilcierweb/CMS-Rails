@@ -1,6 +1,6 @@
 class Adm::GaleriasController < ApplicationController
   layout "adm_layout"
-  before_action :set_adm_galeria, only: [:show, :edit, :update, :destroy]
+  before_action :set_adm_galeria, only: [:show, :edit, :update, :destroy, :imagem_capa]
   
   # GET /adm/galerias
   # GET /adm/galerias.json
@@ -30,11 +30,11 @@ class Adm::GaleriasController < ApplicationController
     respond_to do |format|
       if @adm_galeria.save       
          # to handle multiple images upload on create
-      if params[:adm_galeria][:imagem]
-        params[:adm_galeria][:imagem].each { |image|
-          @adm_galeria.galerias_imagens.create(imagem: image)
-        }
-      end
+         if params[:adm_galeria][:imagem]
+          params[:adm_galeria][:imagem].each { |image|
+            @adm_galeria.galerias_imagens.create(imagem: image)
+          }
+        end
         format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully created.' }
         format.json { render :show, status: :created, location: @adm_galeria }
       else
@@ -50,19 +50,19 @@ class Adm::GaleriasController < ApplicationController
     respond_to do |format|
       if @adm_galeria.update(adm_galeria_params)
            # to handle multiple images upload on create
-      if params[:adm_galeria][:imagem]
-        params[:adm_galeria][:imagem].each { |image|
-          @adm_galeria.galerias_imagens.create(imagem: image)
-        }
-      end
-        format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully updated.' }
-        format.json { render :show, status: :ok, location: @adm_galeria }
-      else
-        format.html { render :edit }
-        format.json { render json: @adm_galeria.errors, status: :unprocessable_entity }
+           if params[:adm_galeria][:imagem]
+            params[:adm_galeria][:imagem].each { |image|
+              @adm_galeria.galerias_imagens.create(imagem: image)
+            }
+          end
+          format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully updated.' }
+          format.json { render :show, status: :ok, location: @adm_galeria }
+        else
+          format.html { render :edit }
+          format.json { render json: @adm_galeria.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
   # DELETE /adm/galerias/1
   # DELETE /adm/galerias/1.json
@@ -74,7 +74,17 @@ class Adm::GaleriasController < ApplicationController
     end
   end
 
-  private
+#PATCH/PUT /adm/imagem_capa/1
+def imagem_capa
+  if @adm_galeria.update(imagem_capa: params[:imagem_capa])
+    respond_to do |format|
+      format.html { redirect_to adm_galerias_url, notice: 'Galeria ima successfully.' }
+      format.json { head :no_content }
+    end
+  end
+end
+
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_adm_galeria
       @adm_galeria = Adm::Galeria.find(params[:id])

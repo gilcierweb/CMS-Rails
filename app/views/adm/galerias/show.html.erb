@@ -33,6 +33,7 @@
    <% else %>
    <%= link_to image_tag(agi.imagem,size: "256x256", alt: "Imagem #{agi.id}", class: "img-responsive" ), '', :title => "Imagem #{agi.id}", :target => "_blank", class: "thumbnail"  %>
    <% end %>
+   <%= link_to 'Tornar capa', {controller: "galerias", action: 'imagem_capa',id: @adm_galeria.id, :imagem_capa => agi.imagem}, class: "btn btn-primary" %>
  </div>
  <% end %>
 </div>
