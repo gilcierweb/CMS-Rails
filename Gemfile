@@ -41,3 +41,4 @@ gem 'bcrypt', '~> 3.1.7'
 #upload 
 #gem 'paperclip'
 gem 'carrierwave'
+gem 'mini_magick', '~> 3.8.0'

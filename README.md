@@ -30,6 +30,8 @@ Comandos utilidados até agora no projeto:
 - rails generate controller Adm/dashboard index --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Banner titulo:string imagem:string link:string --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Noticia titulo:string subtitulo:text descricao:text img_capa:string autor:string --no-assets --no-stylesheets --no-helpers
+- sudo apt-get install imagemagick libmagickwand-dev
+- gem install rmagick mini_magick
 - rails generate uploader noticia
 - rails generate uploader banner
 - rails generate uploader galeria_imagem
