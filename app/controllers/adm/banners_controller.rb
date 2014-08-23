@@ -34,7 +34,7 @@ class Adm::BannersController < ApplicationController
         #   path ='img_banners'
         #   @adm_banner[:imagem] = upload_file(path,params[:adm_banner][:imagem])
         # end
-        format.html { redirect_to @adm_banner, notice: 'Banner was successfully created.' }
+        format.html { redirect_to @adm_banner, notice: t('banners.create_success') }
         format.json { render :show, status: :created, location: @adm_banner }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class Adm::BannersController < ApplicationController
     # end  
     respond_to do |format| 
       if @adm_banner.update(adm_banner_params)
-        format.html { redirect_to @adm_banner, notice: 'Banner was successfully updated.' }
+        format.html { redirect_to @adm_banner, notice: t('banners.update_success') }
         format.json { render :show, status: :ok, location: @adm_banner }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class Adm::BannersController < ApplicationController
     @adm_banner.destroy
 
     respond_to do |format|
-      format.html { redirect_to adm_banners_url, notice: 'Banner was successfully destroyed.' }
+      format.html { redirect_to adm_banners_url, notice: t('banners.destroy_success') }
       format.json { head :no_content }
     end
   end

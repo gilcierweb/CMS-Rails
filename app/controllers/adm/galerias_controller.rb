@@ -35,7 +35,7 @@ class Adm::GaleriasController < ApplicationController
             @adm_galeria.galerias_imagens.create(imagem: image)
           }
         end
-        format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully created.' }
+        format.html { redirect_to @adm_galeria, notice: t('galerias.create_success') }
         format.json { render :show, status: :created, location: @adm_galeria }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class Adm::GaleriasController < ApplicationController
               @adm_galeria.galerias_imagens.create(imagem: image)
             }
           end
-          format.html { redirect_to @adm_galeria, notice: 'Galeria was successfully updated.' }
+          format.html { redirect_to @adm_galeria, notice: t('galerias.update_success') }
           format.json { render :show, status: :ok, location: @adm_galeria }
         else
           format.html { render :edit }
@@ -69,7 +69,7 @@ class Adm::GaleriasController < ApplicationController
   def destroy
     @adm_galeria.destroy
     respond_to do |format|
-      format.html { redirect_to adm_galerias_url, notice: 'Galeria was successfully destroyed.' }
+      format.html { redirect_to adm_galerias_url, notice: t('galerias.destroy_success') }
       format.json { head :no_content }
     end
   end
@@ -78,7 +78,7 @@ class Adm::GaleriasController < ApplicationController
 def imagem_capa
   if @adm_galeria.update(imagem_capa: params[:imagem_capa])
     respond_to do |format|
-      format.html { redirect_to adm_galerias_url, notice: 'Galeria ima successfully.' }
+      format.html { redirect_to adm_galerias_url, notice: t('galerias.imagem_capa_success') }
       format.json { head :no_content }
     end
   end

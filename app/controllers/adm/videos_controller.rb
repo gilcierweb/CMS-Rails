@@ -31,7 +31,7 @@ class Adm::VideosController < ApplicationController
       #@adm_video[:codigo]=parse_youtube(params[:adm_video][:codigo])
 
       if @adm_video.save
-        format.html { redirect_to @adm_video, notice: 'Video was successfully created.' }
+        format.html { redirect_to @adm_video, notice: t('videos.create_success') }
         format.json { render :show, status: :created, location: @adm_video }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Adm::VideosController < ApplicationController
   def update
     respond_to do |format|
       if @adm_video.update(adm_video_params)
-        format.html { redirect_to @adm_video, notice: 'Video was successfully updated.' }
+        format.html { redirect_to @adm_video, notice: t('videos.update_success') }
         format.json { render :show, status: :ok, location: @adm_video }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class Adm::VideosController < ApplicationController
   def destroy
     @adm_video.destroy
     respond_to do |format|
-      format.html { redirect_to adm_videos_url, notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to adm_videos_url, notice: t('videos.destroy_success') }
       format.json { head :no_content }
     end
   end

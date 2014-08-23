@@ -30,7 +30,7 @@ class Adm::NoticiasController < ApplicationController
     respond_to do |format|
     # adm_noticia_upload(params[:adm_noticia][:imagem_capa])
     if @adm_noticia.save
-      format.html { redirect_to @adm_noticia, notice: 'Noticia was successfully created.' }
+      format.html { redirect_to @adm_noticia, notice: t('noticias.create_success') }
       format.json { render :show, status: :created, location: @adm_noticia }
     else
       format.html { render :new }
@@ -44,7 +44,7 @@ end
   def update
     respond_to do |format|
       if @adm_noticia.update(adm_noticia_params)
-        format.html { redirect_to @adm_noticia, notice: 'Noticia was successfully updated.' }
+        format.html { redirect_to @adm_noticia, notice: t('noticias.update_success') }
         format.json { render :show, status: :ok, location: @adm_noticia }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ end
   def destroy
     @adm_noticia.destroy
     respond_to do |format|
-      format.html { redirect_to adm_noticias_url, notice: 'Noticia was successfully destroyed.' }
+      format.html { redirect_to adm_noticias_url, notice: t('noticias.destroy_success') }
       format.json { head :no_content }
     end
   end
