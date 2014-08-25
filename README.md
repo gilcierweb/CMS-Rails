@@ -27,6 +27,9 @@ Comandos utilidados até agora no projeto:
 - rails new cmsrails -d mysql
 - cd /cmsrails 
 - sudo bundle install
+- sudo rake db:create
+- sudo rake db:create:all
+- sudo rake db:migrate
 - rails generate controller Adm/dashboard index --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Banner titulo:string imagem:string link:string --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Noticia titulo:string subtitulo:text descricao:text img_capa:string autor:string --no-assets --no-stylesheets --no-helpers
