@@ -30,6 +30,7 @@ Comandos utilidados até agora no projeto:
 - sudo rake db:create
 - sudo rake db:create:all
 - sudo rake db:migrate
+- sudo rails server
 - rails generate controller Adm/dashboard index --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Banner titulo:string imagem:string link:string --no-assets --no-stylesheets --no-helpers
 - rails generate scaffold Adm/Noticia titulo:string subtitulo:text descricao:text img_capa:string autor:string --no-assets --no-stylesheets --no-helpers
