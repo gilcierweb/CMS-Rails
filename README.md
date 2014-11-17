@@ -16,7 +16,7 @@ Minha intenção com esse projeto é deixar material para as pessoas que estão 
 
 Quem quiser contribuir com o projeto entre contato gilcierweb@gmail.com - http://gilcierweb.com.br pra ser adicionado ao projeto.
 
-Link de demostração
+Link de demonstração
 
 https://cmsrails.herokuapp.com/
 
