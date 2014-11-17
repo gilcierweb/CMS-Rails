@@ -43,11 +43,10 @@
 </div>
 <!--Scripts-->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<% if content_for?(:js)%>
-			<script type="text/javascript">
-				<%= yield :js %>
-			</script>
-		<% end %>
+<% if content_for?(:js)%>
+<script type="text/javascript">
+  <%= yield :js %>
 </script>
+<% end %>
 </body>
 </html>
