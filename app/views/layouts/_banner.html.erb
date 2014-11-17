@@ -1,9 +1,9 @@
  <ul class="rslides">
   <% @banners.each do |banner| %>
   <% if banner.link.blank? %>
-  <li><%= image_tag(  banner.imagem,size: "900x300", alt: "Imagem capa" )%></li>
+  <li><%= image_tag(  banner.imagem,size: "900x300", alt: banner.titulo )%></li>
   <% else %>
-  <li><%= link_to  image_tag(   banner.imagem,size: "900x300", alt: "Imagem capa" ), banner.link, :title => banner.titulo, :target => "_blank" %></li>
+  <li><%= link_to  image_tag(   banner.imagem,size: "900x300", alt: banner.titulo ), banner.link, :title => banner.titulo, :target => "_blank" %></li>
   <% end %>
 
   <% end %>
