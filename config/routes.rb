@@ -1,25 +1,30 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+  #Rotas para frontend
+  get '/', to: 'home#index'
+  get 'sobre', to: 'home#sobre'
+  get 'noticias', to: 'home#noticias'
+  get 'noticia_view/:id', to: 'home#noticia_view'
+  get 'galerias', to: 'home#galerias'
+  get 'galeria_view/:id', to: 'home#galeria_view'
+  get 'videos', to: 'home#videos'
+  get 'contato', to: 'home#contato'
 
-  get 'home/sobre'
+  #Rotas para ações de usuários
+  get    'signup'  ,to: 'users#new'
+  get    'login'   ,to: 'sessions#new'
+  post   'login'   ,to: 'sessions#create'
+  delete 'logout'  ,to: 'sessions#destroy'
+  resources :users
+  resource :sessions, :only => [:create, :new, :destroy]
 
-  get 'home/noticias'
-  get 'home/noticia_view/:id', to: 'home#noticia_view'
-
-  get 'home/galerias'
-  get 'home/galeria_view/:id', to: 'home#galeria_view'
-
-  get 'home/videos'
-
-  get 'home/contato'
-
+  #Rotas para admin
   namespace :adm do
-    get 'dashboard/index'
+    get 'dashboard', to: 'dashboard#index'
     get 'galerias/imagem_capa/:id', to: 'galerias#imagem_capa'
     resources :banners
-    resources :noticias 
-    resources :videos 
+    resources :noticias
+    resources :videos
     resources :galerias
     resources :galerias_imagens
   end
