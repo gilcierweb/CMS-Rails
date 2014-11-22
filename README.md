@@ -18,9 +18,10 @@ Quem quiser contribuir com o projeto entre contato gilcierweb@gmail.com - http:/
 
 Link de demonstração
 
-https://cmsrails.herokuapp.com/
-
-https://cmsrails.herokuapp.com/adm/dashboard/index
+Frontend
+https://cmsrails.herokuapp.com
+Backend
+https://cmsrails.herokuapp.com/adm/dashboard
 
 Instalação do ruby e rails.
 
