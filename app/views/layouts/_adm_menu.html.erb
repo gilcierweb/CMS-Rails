@@ -26,7 +26,12 @@
           <li><a href="#">My Profile</a></li>
         </ul>
       </li>
-      <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+      <li>
+        <%= link_to(logout_path, method: :delete) do %>
+        <i class="glyphicon glyphicon-lock"></i><%= t('sessions.logout')%>
+        <% end %>
+      </li>
+       <li><%= link_to "Log in", login_path %></li>
     </ul>
   </div>
 </div><!-- /container -->

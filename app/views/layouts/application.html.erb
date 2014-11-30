@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ruby on Rail, GilcierWeb">
+  <meta name="description" content="Ruby on Rails, GilcierWeb">
   <meta name="author" content="GilcierWeb - gilcierweb.com.br - gilcierweb@gmail.com">
   <title>Cmsrails</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -29,7 +29,16 @@
    </header>
 
    <section>
+
+    <% flash.each do |key, value| %>    
+    <div class="<%= flash_class(key) %> fade in">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <%= value %>
+    </div>
+    <% end %>
+
     <%= yield %>
+
   </section>
 
   <footer class="text-center">
@@ -38,11 +47,14 @@
      Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> - <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
      <p>
      </footer>
-   </div>
+       </div>
  </div>
 </div>
 <!--Scripts-->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<% if (params[:action] == 'galeria_view') || (params[:action] == 'videos')%>
+<%= javascript_include_tag '/assets/i18n/jquery.colorbox-pt-BR', 'data-turbolinks-track' => true %>
+<% end %>
 <% if content_for?(:js)%>
 <script type="text/javascript">
   <%= yield :js %>

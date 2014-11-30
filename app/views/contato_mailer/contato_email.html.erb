@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+    <body>
+        <h1><%= t ('.title'), :nome => @contato.nome %></h1>
+        <hr />
+        <p><%= t '.nome' %>: <%= @contato.nome %><br />
+        <%= t '.email' %>: <%= @contato.email %><br />
+        <%= t '.cidade' %>: <%= @contato.cidade %><br />
+        <%= t '.estado' %>: <%= @contato.estado %><br />
+        <%= t '.telefone' %>: <%= @contato.telefone %><br />
+        <%= t '.assunto' %>: <%= @contato.assunto %><br />
+        <%= t '.mensagem' %>: <%= @contato.mensagem %><br />
+        </p>
+        <footer class="text-center">
+            <hr />
+            <p>
+            Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> - <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
+            <p> 
+        </footer>
+    </body>
+</html>

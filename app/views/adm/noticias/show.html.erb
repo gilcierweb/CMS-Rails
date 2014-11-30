@@ -25,6 +25,10 @@
   <strong>Autor:</strong>
   <%= @adm_noticia.autor %>
 </p>
-
-<%= link_to 'Edit', edit_adm_noticia_path(@adm_noticia), class: "btn btn-primary"  %> |
+<% if can? :update, @adm_noticia%>
+<%= link_to 'Edit', edit_adm_noticia_path(@adm_noticia), class: "btn btn-primary"  %> 
+<% end %>
+<% if cannot? :update, @adm_noticia%>
+<%= link_to 'Edit not', edit_adm_noticia_path(@adm_noticia), class: "btn btn-primary"  %> 
+<% end %>
 <%= link_to 'Back', adm_noticias_path, class: "btn btn-default" %>

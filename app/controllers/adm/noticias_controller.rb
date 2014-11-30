@@ -1,6 +1,13 @@
 class Adm::NoticiasController < ApplicationController
+  load_and_authorize_resource #metodo cancancan
   layout "adm_layout"
   before_action :set_adm_noticia, only: [:show, :edit, :update, :destroy]
+
+  # before_action :login_required, except: [:index, :show]
+  # before_action :role_required,  except: [:index, :show]
+
+  # before_action :set_page,       only: [:edit, :update, :destroy]
+  # before_action :owner_required, only: [:edit, :update, :destroy]
 
   # GET /adm/noticias
   # GET /adm/noticias.json

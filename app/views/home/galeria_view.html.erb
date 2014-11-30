@@ -11,9 +11,15 @@
      <%= image_tag('noimage.png',size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" )%>
    </a>
    <% else %>
-   <%= link_to image_tag(agi.imagem,size: "256x256", alt: "Imagem #{agi.id}", class: "img-responsive" ), '', :title => "Imagem #{agi.id}", class: "thumbnail"  %>
+   <%= link_to( image_tag(agi.imagem,size: "256x256", alt: "Imagem #{agi.id}", class: " img-responsive" ), "#{agi.imagem}", :title => "Imagem #{agi.id}", class: "galeria-colorbox thumbnail" ) %>
    <% end %>
  </div>
  <% end %>
 </div>
 <br />
+
+<% content_for :js do %>
+$( window ).load(function() {
+  $(".galeria-colorbox").colorbox({rel:'galeria-colorbox', slideshow:true});
+});
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719190941) do
+ActiveRecord::Schema.define(version: 20141121125227) do
 
   create_table "adm_banners", force: true do |t|
     t.string   "titulo"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20140719190941) do
   create_table "adm_noticias", force: true do |t|
     t.string   "titulo"
     t.text     "subtitulo"
-    t.text     "content"
-    t.string   "img_capa"
+    t.text     "descricao",   limit: 2147483647
+    t.string   "imagem_capa"
     t.string   "autor"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -49,6 +49,25 @@ ActiveRecord::Schema.define(version: 20140719190941) do
   create_table "adm_videos", force: true do |t|
     t.string   "titulo"
     t.string   "url_codigo", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "name",        null: false
+    t.string   "title",       null: false
+    t.text     "description", null: false
+    t.text     "the_role",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "salt"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

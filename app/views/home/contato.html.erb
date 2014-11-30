@@ -2,87 +2,77 @@
 <p>Find me in app/views/home/contato.html.erb</p>
 <div class="row">
   <div class="formulario col-md-6">
-    <h3>Fale Conosco</h3>
-    <p>Entre em contato conosco. Envie sua mensagem através do formulário abaixo.</p>
+    <h3><%= t('.titulo') %></h3>
+    <p><%= t('.descricao') %>.</p>
     <div class="formulario_container"> 
-      <form action="" method="post" accept-charset="utf-8" class="formee">            
-        <fieldset>
-          <div class="form-group">
-            <label class="form_label">Nome <span class="text-danger">*</span></label>
-            <input class="form-control" name="nome" type="text" id="nome" size="100" />
-          </div>
-          <div class="form-group">
-            <label class="form_label">Email <span class="text-danger">*</span></label>
-            <input class="form-control" name="email" type="text" id="email" size="40" />
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <label class="form_label">Cidade <span class="text-danger">*</span></label>
-              <input class="form-control" name="cidade" type="text" id="cidade" size="40" />
-            </div>
-            <div class="col-md-3">                  
-              <label class="control-label">Estado <span class="text-danger">*</span></label>
-              <select class="form-control" name="estado" id="estado">
-                <option value="">Escolha</option>
-                <option value="AC">AC</option>
-                <option value="AL">AL</option>ol
-                <option value="BA">BA</option>
-                <option value="CE">CE</option>
-                <option value="DF">DF</option>
-                <option value="ES">ES</option>
-                <option value="GO">GO</option>
-                <option value="MA">MA</option>
-                <option value="MG">MG</option>
-                <option value="MS">MS</option>
-                <option value="MT">MT</option>
-                <option value="PA">PA</option>
-                <option value="PB">PB</option>
-                <option value="PE">PE</option>
-                <option value="PI">PI</option>
-                <option value="PR">PR</option>
-                <option value="RJ">RJ</option>
-                <option value="RN">RN</option>
-                <option value="RO">RO</option>
-                <option value="RR">RR</option>
-                <option value="RS">RS</option>
-                <option value="SC">SC</option>
-                <option value="SP">SP</option>
-                <option value="TO">TO</option>
-              </select>
-            </div>
-          </div>
-          <br />
-          <div class="form-group">
-            <label class="control-label">Telefone <span class="text-danger">*</span></label> 
-            <input class="form-control" name="telefone" type="text" id="telefone" size="40" />
-          </div>
-          <div class="form-group">
-            <label class="form_label">Assunto <span class="text-danger">*</span></label>
-            <input class="form-control" name="assunto" type="text" id="assunto" size="100" />
-          </div>
-          <div class="form-group">
-            <label class="form_label">Mensagem <span class="text-danger">*</span></label>
-            <textarea name="mensagem" cols="31" rows="5" id="mensagem" class="form-control"></textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" name="sendForm" id="sendForm" value="Enviar" class="btn btn-primary"/>
-            <input type="reset" name="limpar" id="limpar" value="Limpar" class="btn btn-default"/>
-          </div>
-        </fieldset>
-      </form> 
-    </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="info_contato">
-      <h3>Informações de Contatos</h3>
-      <br />
-      <p><strong>Localização</strong>: Fortaleza Ceará Brasil</p>
-      <p><strong>Telefones</strong>: +55 85 0000 0000<br />
-        +55 85 0000 0000  </p>
-        <p><strong>Email</strong>: <a href="mailto:gilcierweb@gmail.com">gilcierweb@gmail.com</a><br />
-          <strong>Website</strong>: <a href="http://www.gilcierweb.com.br">http://www.gilcierweb.com.br</a></p>
-          <hr />
-        </div>
+      <%= form_for(@contato, url: {action: "send_contato"}) do |f| %>
+
+      <% if @contato.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@contato.errors.count, "error") %> <%= t 'general.form_error' %></h2>
+
+        <ul>
+          <% @contato.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <fieldset>
+        <div class="form-group">
+        <%= f.label :nome, t('.form.nome'), class: "form_label" %><br />
+         <%= f.text_field :nome, class: "form-control" %>           
+       </div>
+       <div class="form-group">
+         <%= f.label :email, t('.form.email'), class: "form_label" %><br />
+         <%= f.text_field :email, class: "form-control" %>     
+       </div>
+       <div class="row">
+        <div class="col-md-9">
+         <%= f.label :cidade, t('.form.cidade'), class: "form_label" %><br />
+         <%= f.text_field :cidade, class: "form-control" %>     
+       </div>
+       <div class="col-md-3">                  
+        <%= f.label :estado, t('.form.estado'), class: "form_label" %><br />
+        <% estados = [['Escolha', ''],['AC', 'AC'], ['AL', 'AL'], ['AM', 'AM'], ['AP', 'AP'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MG', 'MG'], ['MS', 'MS'], ['MT', 'MT'], ['PA', 'PA'], ['PB', 'PB'], ['PE', 'PE'], ['PI', 'PI'], ['PR', 'PR'], ['RJ', 'RJ'], ['RN', 'RN'], ['RO', 'RO'], ['RR', 'RR'], ['RS', 'RS'], ['SC', 'SC'],  ['SE', 'SE'],['SP', 'SP'], ['TO', 'TO']]%>
+
+        <%= f.select(:estado, estados, {}, {class: "form-control"}) %>
       </div>
     </div>
+    <br />
+    <div class="form-group">
+      <%= f.label :telefone, t('.form.telefone'), class: "form_label" %><br />
+      <%= f.text_field :telefone, class: "form-control" %>   
+    </div>
+    <div class="form-group">
+     <%= f.label :assunto, t('.form.assunto'), class: "form_label" %><br />
+     <%= f.text_field :assunto, class: "form-control" %>   
+   </div>
+   <div class="form-group">
+    <%= f.label :mensagem, t('.form.mensagem'), class: "form_label" %><br />    
+    <%= f.text_area :mensagem,  cols: 31, rows: 5, class: "form-control" %>        
+  </div>
+  <div class="form-group">       
+    <%= f.submit t('.form.submit'), class: "btn btn-primary"%>
+    <%= f.submit t('.form.reset'), :type => "reset" , class: "btn btn-default"%>       
+  </div>
+</fieldset>
+<% end %> 
+</div>
+</div>
+
+<div class="col-md-6">
+  <div class="info_contato">
+    <h3>Informações de Contatos</h3>
+    <br />
+    <p><strong>Localização</strong>: Fortaleza Ceará Brasil</p>
+    <p><strong>Telefones</strong>: +55 85 0000 0000<br />
+      +55 85 0000 0000  </p>
+      <p><strong>Email</strong>: <a href="mailto:gilcierweb@gmail.com">gilcierweb@gmail.com</a><br />
+        <strong>Website</strong>: <a href="http://www.gilcierweb.com.br">http://www.gilcierweb.com.br</a></p>
+        <hr />
+      </div>
+    </div>
+  </div>

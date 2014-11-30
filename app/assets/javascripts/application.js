@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require responsiveslides.min
+//= require jquery.colorbox-min
 //= require plupload.full.min
 //= require_tree .

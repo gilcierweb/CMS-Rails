@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'galeria_view/:id', to: 'home#galeria_view'
   get 'videos', to: 'home#videos'
   get 'contato', to: 'home#contato'
+  post 'send_contato', to: 'home#send_contato'
 
   #Rotas para ações de usuários
   get    'signup'  ,to: 'users#new'

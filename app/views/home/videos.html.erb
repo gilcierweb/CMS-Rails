@@ -7,7 +7,7 @@
     <div class="thumbnail">
       <div class="caption">
         <p>
-         <%= link_to(image_tag("http://i1.ytimg.com/vi/#{video.url_codigo}/mqdefault.jpg",alt: "Clique para Assistir - #{video.titulo}" ), "http://www.youtube.com/watch?v=#{video.url_codigo}", title: "Clique para Assistir - #{video.titulo}") %>         
+         <%= link_to(image_tag("http://i1.ytimg.com/vi/#{video.url_codigo}/mqdefault.jpg",alt: "Clique para Assistir - #{video.titulo}" ), "http://www.youtube.com/embed/#{video.url_codigo}?rel=0&amp;wmode=transparent", title: "Clique para Assistir - #{video.titulo}", class: "youtube") %>         
        </p>
        <h5><%= video.titulo; %></h5>  
      </div>
@@ -15,3 +15,8 @@
  </div>
  <% end %>
 </div>
+<% content_for :js do %>
+$( window ).load(function() {
+   $(".youtube").colorbox({iframe:true, innerWidth:640, innerHeight:390});   
+});
+<% end %>

@@ -92,5 +92,6 @@ inflect.irregular "país", "países"
   inflect.irregular 'receita', 'receitas'
   inflect.irregular 'noticia', 'noticias'
   inflect.irregular 'banner', 'banners'
+  inflect.irregular 'user', 'users'
 
 end
