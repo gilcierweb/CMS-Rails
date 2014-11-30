@@ -54,6 +54,13 @@ Comandos utilidados até agora no projeto:
 - rails generate scaffold Adm/GaleriasImagem galeria_id:integer imagem:string --no-assets --no-stylesheets --no-helpers
 - rails generate controller Home index sobre noticias noticia_view galerias galeria_view videos contato --no-helpers --no-assets --no-stylesheets  
 - rails generate scaffold Adm/Video titulo:string url_codigo:integer --no-assets --no-stylesheets --no-helpers
+- rails generate scaffold User username:string email:string password:string salt:string role_id:integer
+
+- rails generate migration rename_password_on_users
+- rails generate controller Sessions new
+- rails generate model Session --migration=false
+- rails generate model Contato --migration=false
+- rails generate cancan:ability
 
 Observações:
 cuidado com os singular e plural na hora de definir os nomes das tabelas ver arquivo /cmsrails/config/initializers/inflections.rb.
