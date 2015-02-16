@@ -1,4 +1,5 @@
 class Adm::GaleriasImagensController < ApplicationController
+  before_action :require_authentication
   layout "adm_layout"
   before_action :set_adm_galerias_imagem, only: [:show, :edit, :update, :destroy]
 

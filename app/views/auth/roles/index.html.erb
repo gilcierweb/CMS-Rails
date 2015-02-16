@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Auth Roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auth_roles.each do |auth_role| %>
+      <tr>
+        <td><%= auth_role.name %></td>
+        <td><%= auth_role.title %></td>
+        <td><%= auth_role.description %></td>
+        <td><%= link_to 'Show', auth_role %></td>
+        <td><%= link_to 'Edit', edit_auth_role_path(auth_role) %></td>
+        <td><%= link_to 'Destroy', auth_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Role', new_auth_role_path %>

@@ -11,63 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121125227) do
+ActiveRecord::Schema.define(version: 20150215221824) do
 
-  create_table "adm_banners", force: true do |t|
-    t.string   "titulo"
-    t.string   "imagem"
-    t.string   "link"
+  create_table "adm_banners", force: :cascade do |t|
+    t.string   "titulo",     limit: 255
+    t.string   "imagem",     limit: 255
+    t.string   "link",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "adm_galerias", force: true do |t|
-    t.string   "titulo"
-    t.text     "descricao"
-    t.string   "imagem_capa"
+  create_table "adm_galerias", force: :cascade do |t|
+    t.string   "titulo",      limit: 255
+    t.text     "descricao",   limit: 65535
+    t.string   "imagem_capa", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "adm_galerias_imagens", force: true do |t|
-    t.integer  "galeria_id"
-    t.string   "imagem"
+  create_table "adm_galerias_imagens", force: :cascade do |t|
+    t.integer  "galeria_id", limit: 4
+    t.string   "imagem",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "adm_noticias", force: true do |t|
-    t.string   "titulo"
-    t.text     "subtitulo"
-    t.text     "descricao",   limit: 2147483647
-    t.string   "imagem_capa"
-    t.string   "autor"
+  create_table "adm_noticias", force: :cascade do |t|
+    t.string   "titulo",      limit: 255
+    t.text     "subtitulo",   limit: 65535
+    t.text     "descricao",   limit: 4294967295
+    t.string   "imagem_capa", limit: 255
+    t.string   "autor",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "adm_videos", force: true do |t|
-    t.string   "titulo"
+  create_table "adm_videos", force: :cascade do |t|
+    t.string   "titulo",     limit: 255
     t.string   "url_codigo", limit: 30
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "roles", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "title",       null: false
-    t.text     "description", null: false
-    t.text     "the_role",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "auth_roles", force: :cascade do |t|
+    t.string   "name",        limit: 255,   null: false
+    t.string   "title",       limit: 255,   null: false
+    t.text     "description", limit: 65535, null: false
+    t.text     "the_role",    limit: 65535, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  create_table "users", force: true do |t|
-    t.string   "login"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "salt"
-    t.integer  "role_id"
+  create_table "users", force: :cascade do |t|
+    t.string   "username",        limit: 255
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.string   "salt",            limit: 255
+    t.integer  "role_id",         limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,30 @@
+<%= form_for(@auth_role) do |f| %>
+    <% if @auth_role.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@auth_role.errors.count, "error") %> prohibited this auth_role from being saved:</h2>
+
+          <ul>
+            <% @auth_role.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, class: "form_label" %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :title, class: "form_label" %><br>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: "form_label" %><br>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Salvar', class: "btn btn-primary"%>
+      <%= f.submit 'Limpar', :type => "reset" , class: "btn btn-default"%>
+    </div>
+<% end %>

@@ -33,7 +33,9 @@ class Session
   def user_signed_in?
     @session[:user_id].present?
   end
-
+  # def require_user
+  #   redirect_to login_path unless current_user
+  # end
   def destroy
     @session[:user_id] = nil
   end

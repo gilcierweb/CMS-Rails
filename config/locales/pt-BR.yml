@@ -28,7 +28,8 @@ pt-BR:
     notice: 
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Logout efetuado com sucesso. Até logo!'
-      send_success: 'Mensagem enviada com sucesso!'      
+      send_success: 'Mensagem enviada com sucesso!'
+      already_logged_in: 'Você já estar logado!'
     alert:
       needs_login: 'Para continuar, você precisa estar logado'
     error:
@@ -70,6 +71,15 @@ pt-BR:
      create_success: Vídeo criado com sucesso.
      update_success: Vídeo atualizado com sucesso.
      destroy_success: Vídeo deletado com sucesso.
+
+  unauthorized:
+     default: "Não é permitido o acesso."
+     manage:
+       all: "Você não tem permissão para acessar %{action} %{subject}."
+       user: "Não permitido para gerenciar outras contas de usuário."
+     update:
+       project: "Não permitido para atualizar este projeto."
+
   date:
     abbr_day_names:
     - Dom

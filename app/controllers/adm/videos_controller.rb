@@ -1,4 +1,5 @@
 class Adm::VideosController < ApplicationController
+  before_action :require_authentication
   layout "adm_layout"
   before_action :set_adm_video, only: [:show, :edit, :update, :destroy]
 

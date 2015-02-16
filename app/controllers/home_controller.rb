@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+  class HomeController < ApplicationController
   def index
     @banners = Adm::Banner.all
     @noticias = Adm::Noticia.all

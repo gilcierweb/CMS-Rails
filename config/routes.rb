@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     resources :galerias_imagens
   end
 
+  #Rotas de autenticação
+  namespace :auth do
+    resources :roles
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

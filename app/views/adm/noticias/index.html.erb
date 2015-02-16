@@ -20,9 +20,11 @@
       <td><%= adm_noticia.descricao.truncate(270, separator: /\s/) %></td>
       <td><%= adm_noticia.imagem_capa %><%= image_tag(adm_noticia.imagem_capa,size: "100x100", alt: "Imagem capa" )%></td>
       <td><%= adm_noticia.autor %></td>
+      <td><%= link_to 'Show', adm_noticia , class: "btn btn-default"%></td>
       <% if can? :update, @adm_noticias %>
       <td><%= link_to 'Edit', edit_adm_noticia_path(adm_noticia), class: "btn btn-primary" %></td>
-      <% else %>
+      <% end %>
+      <% if can? :destroy, @adm_noticias %>
       <td><%= link_to 'Destroy', adm_noticia, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
        <% end %>
     </tr>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
+  belongs_to :role,class_name: "Auth::Role"
 
-  ROLES = %i[admin moderator author banned]
+  #ROLES = %i[admin moderator author banned]
 
   #has_secure_password = class macro já nos dá as validações de confirmação de senha e a presença de senha.
   # Além disso, ela cria dois novos atributos

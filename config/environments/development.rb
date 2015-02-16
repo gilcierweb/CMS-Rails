@@ -45,4 +45,5 @@ Rails.application.configure do
     :address => "localhost",
     :port => 1025
   }
+  config.assets.paths << Rails.root.join("vendor", 'assets', "i18n")
 end
