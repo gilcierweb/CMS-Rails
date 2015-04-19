@@ -1,20 +1,27 @@
 <h1>Home#galerias</h1>
 <p>Find me in app/views/home/galerias.html.erb</p>
-<div class="row">
-  <% @galerias.each do |gal| %>
+<div id="container-mansory" class="row">
+  <% @galerias.each do |galeria| %>
   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
     <div class="thumbnail">
-     <% if gal.imagem_capa.blank? %>
-     <%= link_to(image_tag('noimage.png', size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" ), { controller: "home", action: "galeria_view", id: gal.id}, :title => gal.titulo) %>
+     <% if galeria.imagem_capa.blank? %>
+     <%= link_to(image_tag('noimage.png', size: "256x256", alt: "Sem imagem", title: "Sem imagem", class: "img-responsive" ), { controller: "home", action: "galeria_view", id: galeria.id}, :title => galeria.titulo) %>
      <% else %>
-     <%= link_to image_tag(gal.imagem_capa, size: "256x256", alt: "Imagem #{gal.id}", class: "img-responsive" ), { controller: "home", action: "galeria_view", id: gal.id}, :title => gal.titulo %>
+     <%= link_to image_tag(galeria.imagem_capa, size: "256x256", alt: "Imagem #{galeria.id}", class: "img-responsive" ), { controller: "home", action: "galeria_view", id: galeria.id}, :title => galeria.titulo %>
      <% end %>
      <div class="caption">
-      <h3><%= gal.titulo.truncate(27, separator: /\s/) %></h3>
-      <p><%= gal.descricao.truncate(140, separator: /\s/) %></p>
-      <p><%=  link_to 'Ver Mais', { controller: "home", action: "galeria_view", id: gal.id}, class: "btn btn-default" %></p>
+      <h3><%= galeria.titulo.truncate(27, separator: /\s/) %></h3>
+      <p><%= galeria.descricao.truncate(140, separator: /\s/) %></p>
+      <p><%=  link_to 'Ver Mais', { controller: "home", action: "galeria_view", id: galeria.id}, class: "btn btn-default" %></p>
     </div>
   </div>
 </div>
 <% end %>
 </div>
+
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "masonry.pkgd.min.js" %>
+<% end %>
+<% content_for :js do %>
+  var msnry = new Masonry('#container-mansory');
+<% end %>

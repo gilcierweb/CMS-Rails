@@ -2,25 +2,29 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Imagem</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Titulo</th>
+    <th>Imagem</th>
+    <th>Link</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @adm_banners.each do |adm_banner| %>
-    <tr>
-      <td><%= adm_banner.titulo %></td>
-      <td><%= image_tag(adm_banner.imagem, size: "100x100", alt: "Imagem capa")%></td>
-      <td><%= adm_banner.link %></td>
-      <td><%= link_to 'Show', adm_banner, class: "btn btn-info" %></td>
-      <td><%= link_to 'Edit', edit_adm_banner_path(adm_banner), class: "btn btn-primary" %></td>
-      <td><%= link_to 'Destroy', adm_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-    </tr>
-    <% end %>
+  <% @adm_banners.each do |adm_banner| %>
+      <tr>
+        <td><%= adm_banner.titulo %></td>
+        <td><%= image_tag(adm_banner.imagem, size: "100x100", alt: "Imagem capa")%></td>
+        <td><%= adm_banner.link %></td>
+        <td><%= link_to 'Show', adm_banner, class: "btn btn-info" %></td>
+        <% if can? :update, @adm_banners %>
+            <td><%= link_to 'Edit', edit_adm_banner_path(adm_banner), class: "btn btn-primary" %></td>
+        <% end %>
+        <% if can? :destroy, @adm_banners %>
+            <td><%= link_to 'Destroy', adm_banner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <% end %>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 

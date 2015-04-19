@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout "auth_layout"
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -62,13 +63,24 @@ class UsersController < ApplicationController
   # end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:username, :email, :password, :salt, :role_id)
-    end
+  # verificação para editar outro perfil
+  # def can_change
+  #   unless user_signed_in? && current_user == user
+  #     redirect_to user_path(params[:id])
+  #   end
+  # end
+  #
+  # def user
+  #   @user ||= User.find(params[:id])
+  # end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :salt, :role_id)
+  end
 end

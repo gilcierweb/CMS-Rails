@@ -23,10 +23,13 @@ multipart: true,
 multipart_params: {
 "authenticity_token" : "<%= form_authenticity_token %>",
 '<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>',
-"adm_galerias_imagem[galeria_id]": <%= params[:id] %>
+"adm_galerias_imagem[galeria_id]": '<%= params[:id] %>',
 },
-//flash_swf_url : '/assets/Moxie.swf',
-//silverlight_xap_url : '/assets/Moxie.xap',
+// Flash settings
+flash_swf_url : '<%= asset_path('plupload/Moxie.swf') %>' ,
+// Silverlight settings
+silverlight_xap_url : '<%= asset_path('plupload/Moxie.xap') %>',
+
 file_data_name:"adm_galerias_imagem[imagem]",
 filters : {
 max_file_size : '10mb',

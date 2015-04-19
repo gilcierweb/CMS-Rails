@@ -71,6 +71,14 @@ pt-BR:
      create_success: Vídeo criado com sucesso.
      update_success: Vídeo atualizado com sucesso.
      destroy_success: Vídeo deletado com sucesso.
+  users:
+    form:
+      create: 'Salvar'
+  sessions:
+    form:
+      register: 'Registe-se agora'
+      txtnew: 'Novo usuário?'
+      txtforgot: 'Esqueceu sua senha?'
 
   unauthorized:
      default: "Não é permitido o acesso."

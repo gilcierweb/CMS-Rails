@@ -3,34 +3,38 @@
 <%= link_to 'New Galeria', new_adm_galeria_path, class: "btn btn-success" %>
 <table class="table">
   <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Descricao</th>
-      <th>Imagem capa</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Titulo</th>
+    <th>Descricao</th>
+    <th>Imagem capa</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @adm_galerias.each do |adm_galeria| %>
-    <tr>
-      <td><%= adm_galeria.titulo %></td>
-      <td><%= adm_galeria.descricao %></td>
-      <td>
-        <% if adm_galeria.imagem_capa.blank? %>
-        <%= image_tag(  'noimage.png',size: "156x156", alt: "Sem imagem capa", title: "Sem imagem capa" )%>
-        <% else %>
-        <%= link_to  image_tag( adm_galeria.imagem_capa,size: "256x256", alt: "Imagem capa" ), '', :title => 'Imagem capa' %>
+  <% @adm_galerias.each do |adm_galeria| %>
+      <tr>
+        <td><%= adm_galeria.titulo %></td>
+        <td><%= adm_galeria.descricao %></td>
+        <td>
+          <% if adm_galeria.imagem_capa.blank? %>
+              <%= image_tag(  'noimage.png',size: "156x156", alt: "Sem imagem capa", title: "Sem imagem capa" )%>
+          <% else %>
+              <%= link_to  image_tag( adm_galeria.imagem_capa,size: "256x256", alt: "Imagem capa" ), '', :title => 'Imagem capa' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Show', adm_galeria, class: "btn btn-info" %>
+          <%= link_to 'Adicionar imagens', {controller: "galerias_imagens", action: 'new', id: adm_galeria}, class: "btn btn-success" %>
+        </td>
+        <% if can? :update, @adm_galerias %>
+            <td><%= link_to 'Edit', edit_adm_galeria_path(adm_galeria), class: "btn btn-primary" %></td>
         <% end %>
-      </td>
-      <td>
-        <%= link_to 'Show', adm_galeria, class: "btn btn-info" %>
-        <%= link_to 'Adicionar imagens', {controller: "galerias_imagens", action: 'new', id: adm_galeria}, class: "btn btn-success" %>
-      </td>
-      <td><%= link_to 'Edit', edit_adm_galeria_path(adm_galeria), class: "btn btn-primary" %></td>
-      <td><%= link_to 'Destroy', adm_galeria, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-    </tr>
-    <% end %>
+        <% if can? :destroy, @adm_galerias %>
+            <td><%= link_to 'Destroy', adm_galeria, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <% end %>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 

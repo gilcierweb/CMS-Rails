@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :role,class_name: "Auth::Role"
+  belongs_to :role, class_name: "Auth::Role"
 
   #ROLES = %i[admin moderator author banned]
 

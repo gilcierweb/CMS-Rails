@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new(session, session_params)
     if @session.authenticate!
-      redirect_to root_path, notice: t('flash.notice.signed_in')
+      redirect_to adm_dashboard_path, notice: t('flash.notice.signed_in')
     else
       flash[:error] = t('flash.error.login_invalid')
       render :new

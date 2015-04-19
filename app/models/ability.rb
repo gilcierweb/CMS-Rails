@@ -5,16 +5,42 @@ class Ability
     #can :read, :all
 
     user ||= User.new
-    #abort(user.role.name)
+   #abort(user.role.name)
     if user.role.name == "admin"
       can :manage, :all
-    elseif user.role.name?('moderator')
-      can :create, Adm::Noticia
-      can :update, Adm::Noticia
-      can :read, Adm::Noticia
+    elsif user.role.name == "moderator"
+      #can :new, :create, :update, :read, :all
+      can :create, :all
+      can :update, :all
+      can :read, :all
+      cannot :destroy, :all
     else
-      can :read, Adm::Noticia
+      can :read, :all
+
+      if user.role.name == "author"
+        can :create, Article
+        can :update, Article do |article|
+          article.try(:user) == user
+        end
+      end
+
     end
+
+    # if user.has_role? :admin
+    #   can :manage, :all
+    # elsif user.has_role? :editor
+    #   can :manage, :all
+    #   cannot :destroy, all
+    # elsif user.has_role? :author
+    #   can :manage, User
+    # elsif user.has_role? :moderator
+    #   can :read, :all
+    #   can :dashboard, User
+    #   cannot :read, Role
+    # elsif user.has_role? :guest
+    #   can :new, :create, User
+    # end
+    # http://runnable.com/UqI11ZPURQcmAADK/how-define-abilities-with-cancan-for-ruby-on-rails
 
     # Define abilities for the passed in user here. For example:
     #

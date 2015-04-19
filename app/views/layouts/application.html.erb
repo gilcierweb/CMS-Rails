@@ -21,13 +21,13 @@
   <div class="row">
 
     <header class="header-title">
-      <div class="col-md-9">
+      <div class="col-lg-9 col-md-9 col-sm-9">
         <hgroup>
           <h1>CMS Rails - 1.0</h1>
           <h4>Projeto Open Source de GilcierWeb</h4>
         </hgroup>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
 
         <ul class="header-login">
           <% if user_signed_in? %>
@@ -43,7 +43,7 @@
       </div>
     </header>
 
-    <div class="col-md-12">
+    <div class="col-lg-12 col-md-12 col-sm-12">
       <section>
         <%= render 'layouts/menu' %>
 
@@ -75,14 +75,23 @@
   </div>
 </div>
 <!--Scripts-->
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 <% if (params[:action] == 'galeria_view') || (params[:action] == 'videos')%>
-    <%= javascript_include_tag  '/i18n/jquery.colorbox-pt-BR', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag  'jquery.colorbox-min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag  'i18n/jquery.colorbox-pt-BR', 'data-turbolinks-track' => true %>  
 <% end %>
+
+<% if content_for?(:javascript_includes) %>
+  <%= yield :javascript_includes %>
+<% end %>
+
 <% if content_for?(:js)%>
     <script type="text/javascript">
         <%= yield :js %>
     </script>
 <% end %>
+
 </body>
 </html>
