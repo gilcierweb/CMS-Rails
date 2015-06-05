@@ -74,11 +74,19 @@ pt-BR:
   users:
     form:
       create: 'Salvar'
+    profile: 'Meu perfil'
   sessions:
     form:
       register: 'Registe-se agora'
+      login: 'Entrar'
+      email: 'E-mail'
+      password: 'Senha'
+      txtlogin: 'Administração'
       txtnew: 'Novo usuário?'
       txtforgot: 'Esqueceu sua senha?'
+      txtrememberme: 'Lembre-me neste computador'
+    logout: 'Sair'
+    settings: 'Configurações'
 
   unauthorized:
      default: "Não é permitido o acesso."

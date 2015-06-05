@@ -61,6 +61,9 @@ Comandos utilidados até agora no projeto:
 - rails generate model Contato --migration=false
 - rails generate cancan:ability
 - rails generate scaffold Auth/Role name:string title:string description:text --no-assets --no-stylesheets --no-helpers
+- rails generate rspec:install
+- bundle exec rspec
+- bundle exec rspec spec/models
 
 Observações:
 cuidado com os singular e plural na hora de definir os nomes das tabelas ver arquivo /cmsrails/config/initializers/inflections.rb.

@@ -1,31 +1,30 @@
-<%= form_for(@adm_banner, :html => { :multipart => true }) do |f| %>
-  <% if @adm_banner.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(@adm_banner.errors.count, "error") %> prohibited this adm_banner from being saved:</h2>
+<%= form_for(@adm_banner, :html => {:multipart => true}) do |f| %>
+    <% if @adm_banner.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <h2><%= pluralize(@adm_banner.errors.count, "error") %> prohibited this adm_banner from being saved:</h2>
 
-      <ul>
-      <% @adm_banner.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @adm_banner.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :titulo, class: "form_label" %>
+      <%= f.text_field :titulo, class: "form-control" %>
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :imagem, class: "form_label" %>
+      <%= f.file_field :imagem %>
+    </div>
+    <div class="form-group">
+      <%= f.label :link, class: "form_label" %>
+      <%= f.text_field :link, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Cadastrar', class: "btn btn-primary" %>
+    </div>
 
-<div class="row">
-  <div class="col-md-8">
-    <%= f.label :titulo %><br>
-    <%= f.text_field :titulo, class: "form-control" %>
-  </div>
-  <div class="col-md-8">
-    <%= f.label :imagem %><br>
-    <%= f.file_field :imagem%>
-  </div>
-  <div class="col-md-8">
-    <%= f.label :link %><br>
-    <%= f.text_field :link, class: "form-control"%>
-  </div>
-  <div class="col-md-8">
-    <%= f.submit 'Cadastrar', class: "btn btn-primary"  %>
-  </div>
-  </div>
 <% end %>

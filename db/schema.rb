@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215221824) do
+ActiveRecord::Schema.define(version: 20150419224400) do
 
   create_table "adm_banners", force: :cascade do |t|
     t.string   "titulo",     limit: 255
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20150215221824) do
     t.string   "name",        limit: 255,   null: false
     t.string   "title",       limit: 255,   null: false
     t.text     "description", limit: 65535, null: false
-    t.text     "the_role",    limit: 65535, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -70,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150215221824) do
     t.integer  "role_id",         limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_digest", limit: 255
   end
 
 end

@@ -2,30 +2,31 @@
   <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-default" >
       <div class="panel-heading">
-        <div class="panel-title">Login</div>
+        <div class="panel-title"><%= t('.txtlogin') %></div>
         <div style="float:right; font-size: 80%; position: relative; top:-10px"><%= link_to t('.txtforgot'), signup_path %></div>
       </div>
       <div style="padding-top:30px" class="panel-body" >
 
         <%= form_for(@session, url: login_path) do |f| %>
             <div class="form-group">
-              <%= f.label :email, class: "form_label"  %>
+              <%= f.label :email, t('.email'), class: "form_label"  %>
               <%= f.text_field :email, class: "form-control" %>
             </div>
             <div class="form-group">
-              <%= f.label :password, class: "form_label"  %>
+              <%= f.label :password, t('.password'), class: "form_label"  %>
               <%= f.password_field :password, class: "form-control" %>
             </div>
             <div class="input-group">
               <div class="checkbox">
-                <label>
-                  <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                </label>
+                <%= f.label :remember_me, class: "checkbox inline" do %>
+                    <%= f.check_box :remember_me %>
+                    <span><%=t('.txtrememberme')%></span>
+                <% end %>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-12 controls">
-                <%= f.submit "Log in", class: "btn btn-primary" %>
+                <%= f.submit t('.login'), class: "btn btn-primary" %>
               </div>
             </div>
         <% end %>
