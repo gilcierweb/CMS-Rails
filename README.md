@@ -4,7 +4,7 @@ Projeto Open Source de GilcierWeb
 
 Versão: 1.0 Alpha.
 
-[![Build Status](https://travis-ci.org/gilcierweb/CMS-Rails.svg?branch=master)](https://travis-ci.org/gilcierweb/CMS-Rails)
+[![Build Status](https://travis-ci.org/gilcierweb/CMS-Rails.svg?branch=master)](https://travis-ci.org/gilcierweb/CMS-Rails) [![Code Climate](https://codeclimate.com/github/gilcierweb/CMS-Rails/badges/gpa.svg)](https://codeclimate.com/github/gilcierweb/CMS-Rails)
 
 Data de Criação: Seg, Jul  7 2014 19:36:46.
 
