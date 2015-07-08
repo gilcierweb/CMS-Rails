@@ -76,3 +76,6 @@ end
 
 #gem de autorização
 gem 'cancancan', '~> 1.9.2'
+
+#Gem
+gem 'responders'

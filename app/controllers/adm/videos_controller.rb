@@ -2,7 +2,7 @@ class Adm::VideosController < ApplicationController
   before_action :require_authentication
   layout "adm_layout"
   before_action :set_adm_video, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :json
   # GET /adm/videos
   # GET /adm/videos.json
   def index
@@ -32,11 +32,16 @@ class Adm::VideosController < ApplicationController
       #@adm_video[:codigo]=parse_youtube(params[:adm_video][:codigo])
 
       if @adm_video.save
-        format.html { redirect_to @adm_video, notice: t('videos.create_success') }
-        format.json { render :show, status: :created, location: @adm_video }
+        # format.html { redirect_to @adm_video, notice: t('videos.create_success') }
+        # format.json { render :show, status: :created, location: @adm_video }
+        flash[:notice] = t('videos.create_success')
+        respond_with(@adm_video)
       else
-        format.html { render :new }
-        format.json { render json: @adm_video.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @adm_video.errors, status: :unprocessable_entity }
+
+        respond_with(@adm_video)
+
       end
     end
   end
