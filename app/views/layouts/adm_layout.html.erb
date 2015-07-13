@@ -7,7 +7,7 @@
   <meta name="description" content="Ruby on Rails, GilcierWeb">
   <meta name="author" content="GilcierWeb - gilcierweb.com.br - gilcierweb@gmail.com">
   <title>Cmsrails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -37,7 +37,9 @@
 
       <footer class="text-center">
         <p>
-          Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> - <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
+          Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> -
+          <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
+
         <p>
       </footer>
     </div>
@@ -46,7 +48,7 @@
 <!--Scripts-->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-<% if content_for?(:js)%>
+<% if content_for?(:js) %>
     <script type="text/javascript">
         <%= yield :js %>
     </script>

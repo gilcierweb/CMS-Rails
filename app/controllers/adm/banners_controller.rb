@@ -1,5 +1,7 @@
 class Adm::BannersController < ApplicationController
-  before_action :require_authentication
+  # before_action :require_authentication
+  #devise autheticação
+  before_action :authenticate_user!, :except => [:index, :show]
   load_and_authorize_resource #metodo cancancan
   layout "adm_layout"
   before_action :set_adm_banner, only: [:show, :edit, :update, :destroy]

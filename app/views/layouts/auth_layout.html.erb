@@ -36,9 +36,10 @@
       </section>
 
       <footer class="text-center">
-        <hr />
+        <hr/>
         <p>
-          Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> - <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
+          Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> -
+          <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
         <p>
       </footer>
     </div>
@@ -46,10 +47,10 @@
 </div>
 <!--Scripts-->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-<% if (params[:action] == 'galeria_view') || (params[:action] == 'videos')%>
+<% if (params[:action] == 'galeria_view') || (params[:action] == 'videos') %>
     <%= javascript_include_tag '/assets/i18n/jquery.colorbox-pt-BR', 'data-turbolinks-track' => true %>
 <% end %>
-<% if content_for?(:js)%>
+<% if content_for?(:js) %>
     <script type="text/javascript">
         <%= yield :js %>
     </script>

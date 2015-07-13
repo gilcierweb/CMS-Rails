@@ -32,12 +32,12 @@
         <ul class="header-login">
           <% if user_signed_in? %>
               <li>
-                <%= link_to(logout_path, method: :delete, class: 'btn btn-default') do %>
+                <%= link_to(destroy_user_session_path, method: :delete, class: 'btn btn-default') do %>
                     <i class="glyphicon glyphicon-lock"></i><%= t('sessions.logout') %>
                 <% end %>
               </li>
           <% else %>
-              <li><%= link_to "Log in", login_path, class: 'btn btn-success' %></li>
+              <li><%= link_to "Log in", new_user_session_path, class: 'btn btn-success' %></li>
           <% end %>
         </ul>
       </div>

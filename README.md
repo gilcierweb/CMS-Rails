@@ -65,7 +65,14 @@ rails generate controller Sessions new
 rails generate model Session --migration=false
 rails generate model Contato --migration=false
 rails generate cancan:ability
+rake db:migrate:down VERSION=20141119150458
 rails generate scaffold Auth/Role name:string title:string description:text --no-assets --no-stylesheets --no-helpers
+rails generate migration AddRoleIdToUsers role_id:integer:index
+rails generate devise:install
+rails generate devise user
+rake db:migrate
+rails generate devise:views
+rake db:seed
 rails generate rspec:install
 bundle exec rspec
 bundle exec rspec spec/models

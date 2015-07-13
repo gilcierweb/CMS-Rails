@@ -1,0 +1,39 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :email, t('devise.registrations.form.email'), class: "form_label" %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t('devise.registrations.form.text.confirmation') %> <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :password, t('devise.registrations.form.password'), class: "form_label" %> <i><%= t('devise.registrations.form.text.password') %></i><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, t('devise.registrations.form.password_confirmation'), class: "form_label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :current_password, t('devise.registrations.form.current_password'), class: "form_label" %> <i><%= t('devise.registrations.form.text.current_password') %></i><br />
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('devise.registrations.form.edit.submit'), class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<h3><%= t('devise.registrations.form.title.cancel') %></h3>
+
+<p><%= t('devise.registrations.form.title.unhappy') %> <%= button_to t('devise.registrations.form.title.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %></p>
+
+<%= link_to t('flash.links.back'), :back, class: "btn btn-default"  %>

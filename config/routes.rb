@@ -11,13 +11,16 @@ Rails.application.routes.draw do
   get 'contato', to: 'home#contato'
   post 'send_contato', to: 'home#send_contato'
 
+  # rotas devise
+  devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up'}
+
   #Rotas para ações de usuários
-  get    'signup'  ,to: 'users#new'
-  get    'login'   ,to: 'sessions#new'
-  post   'login'   ,to: 'sessions#create'
-  delete 'logout'  ,to: 'sessions#destroy'
-  resources :users
-  resource :sessions, :only => [:create, :new, :destroy]
+  # get    'signup'  ,to: 'users#new'
+  # get    'login'   ,to: 'sessions#new'
+  # post   'login'   ,to: 'sessions#create'
+  # delete 'logout'  ,to: 'sessions#destroy'
+  # resources :users
+  # resource :sessions, :only => [:create, :new, :destroy]
 
   #Rotas para admin
   namespace :adm do

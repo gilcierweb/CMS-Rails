@@ -1,4 +1,6 @@
 class Auth::RolesController < ApplicationController
+  before_action :authenticate_user! #devise autheticação
+  load_and_authorize_resource #metodo cancancan
   layout "adm_layout"
   before_action :set_auth_role, only: [:show, :edit, :update, :destroy]
 

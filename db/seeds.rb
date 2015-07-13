@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Auth::Role.destroy_all
+
+auth_roles_list = [
+    ["admin", "Administrador", "Admintrador Principal"],
+    ["moderator", "Moderador", "Moderador tem alguns privilégios a menos que admin"],
+    ["editor", "Editor", "Editor tem alguns privilégios a menos que admin e moderator"],
+    ["author", "Autor", "O autor tem os privilégios de criar, editar, ver e deletar o sue proprio post"],
+    ["guest", "Convidado", "Usuarios do sistema somente com privilégio de ver os conteudos no frontend"],
+]
+
+auth_roles_list.each do |name, title, description|
+  Auth::Role.create(:name => name, :title => title, :description => description)
+end

@@ -35,7 +35,7 @@ gem "puma"
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
- gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -74,7 +74,10 @@ end
 #gem 'the_role', '~> 2.5.4'
 #gem 'the_role_bootstrap3_ui'
 
-#gem de autorização
+# gem de autenticacao
+gem 'devise'
+
+#gem de autorizacao
 gem 'cancancan', '~> 1.9.2'
 
 #Gem

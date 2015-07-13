@@ -1,19 +1,19 @@
- <ul class="rslides">
+<ul class="rslides">
   <% @banners.each do |banner| %>
-  <% if banner.link.blank? %>
-  <li><%= image_tag(  banner.imagem,size: "900x300", alt: banner.titulo )%></li>
-  <% else %>
-  <li><%= link_to  image_tag(   banner.imagem,size: "900x300", alt: banner.titulo ), banner.link, :title => banner.titulo, :target => "_blank" %></li>
-  <% end %>
+      <% if banner.link.blank? %>
+          <li><%= image_tag(banner.imagem, size: "900x300", alt: banner.titulo) %></li>
+      <% else %>
+          <li><%= link_to image_tag(banner.imagem, size: "900x300", alt: banner.titulo), banner.link, :title => banner.titulo, :target => "_blank" %></li>
+      <% end %>
 
   <% end %>
 </ul>
 <% content_for :js do %>
-  $(function() {
-   $(".rslides").responsiveSlides({
-     speed: 1500,
-     pause: true,
-     random: true
-   });
- });
+    $(function() {
+        $(".rslides").responsiveSlides({
+            speed: 1500,
+            pause: true,
+            random: true
+        });
+    });
 <% end %> 

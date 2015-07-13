@@ -8,7 +8,7 @@ class Ability
    #abort(user.role.name)
     if user.role.name == "admin"
       can :manage, :all
-    elsif user.role.name == "moderator"
+    elsif user.role.name == "moderador"
       #can :new, :create, :update, :read, :all
       can :create, :all
       can :update, :all
