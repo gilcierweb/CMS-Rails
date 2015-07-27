@@ -1,5 +1,13 @@
 pt-BR:
   home:
+    title:
+      sobre: 'Sobre'
+      noticias: 'Notícias'
+      galerias: 'Galerias'
+      videos: 'Vídeos'
+      contato: 'Contato'
+      banners: 'Banners'
+
     contato:
       titulo: "Fale Conosco"
       descricao: "Entre em contato conosco. Envie sua mensagem através do formulário abaixo"
@@ -47,6 +55,13 @@ pt-BR:
     form_error: Há erros no formulário, por favor verifique.
     submit:
       enviar: 'Enviar'
+  adm:
+    menu:
+      title:
+        noticias: 'Notícias'
+        galerias: 'Galerias'
+        banners: 'Banners'
+        videos: 'Vídeos'
   banners:
      editing_banner: Editando banner
      listing_banners: Listando banners

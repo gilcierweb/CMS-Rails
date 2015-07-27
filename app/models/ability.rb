@@ -5,7 +5,7 @@ class Ability
     #can :read, :all
 
     user ||= User.new
-   #abort(user.role.name)
+    #abort(user.role.name)
     if user.role.name == "admin"
       can :manage, :all
     elsif user.role.name == "moderator"
@@ -14,8 +14,13 @@ class Ability
       can :update, :all
       can :read, :all
       cannot :destroy, :all
+    elsif user.role.name == "editor"
+      can :manage, :all
+      cannot :destroy, all
     else
       can :read, :all
+      can :new, :create, User
+      cannot :destroy, all
 
       if user.role.name == "author"
         can :create, Article

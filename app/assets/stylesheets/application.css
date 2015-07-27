@@ -11,6 +11,7 @@
  * file per style scope.
  *= require bootstrap
  *= require bootstrap-theme
+ *= require font-awesome.css
  *= require responsiveslides
  *= require colorbox
  *= require_tree .

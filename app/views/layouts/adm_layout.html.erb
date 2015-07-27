@@ -8,6 +8,7 @@
   <meta name="author" content="GilcierWeb - gilcierweb.com.br - gilcierweb@gmail.com">
   <title>Cmsrails</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'sb-admin', media: 'all', 'data-turbolinks-track' => true %>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -17,34 +18,50 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper">
 
-<%= render 'layouts/adm_menu' %>
+  <%= render 'layouts/adm_menu' %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <header class="header-title">
-        <hgroup>
-          <h1>CMS Rails - 1.0</h1>
-          <h4>Projeto Open Source de GilcierWeb</h4>
-        </hgroup>
 
-      </header>
 
-      <section>
-        <%= yield %>
-      </section>
 
-      <footer class="text-center">
-        <p>
-          Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> -
-          <a href="http://gilcierweb.com.br" target="_blank">gilcierweb.com.br</a>
+  <div id="page-wrapper">
 
-        <p>
-      </footer>
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <header class="header-title">
+            <hgroup>
+              <h1>CMS Rails - 1.0</h1>
+              <h4>Projeto Open Source de GilcierWeb</h4>
+            </hgroup>
+
+          </header>
+
+          <section>
+            <%= yield %>
+          </section>
+
+          <footer class="text-center">
+            <p>
+              Copyright &copy; GilcierWeb Rails - <%= Time.new.year %> -
+              <a href="http://gilcierweb.com.br" target="_blank" title="gilcierweb.com.br">gilcierweb.com.br</a>
+
+            <p>
+          </footer>
+        </div>
+      </div>
+      <!-- /.row -->
+
     </div>
+    <!-- /.container-fluid -->
+
   </div>
+  <!-- /#page-wrapper -->
+
 </div>
+<!-- /#wrapper -->
 <!--Scripts-->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
