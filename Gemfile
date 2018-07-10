@@ -51,7 +51,7 @@ gem 'mini_magick', '~> 3.8.0'
 gem 'devise'
 
 #gem de autorizacao
-gem 'cancancan', '~> 1.9.2'
+gem 'cancancan', '~> 2.0'
 
 #Gem
 gem 'responders'

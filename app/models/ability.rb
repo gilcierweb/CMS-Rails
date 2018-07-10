@@ -6,23 +6,23 @@ class Ability
 
     user ||= User.new
     #abort(user.role.name)
-    if user.role.name == "admin"
+    if user.role.try(:name) == "admin"
       can :manage, :all
-    elsif user.role.name == "moderator"
+    elsif user.role.try(:name) == "moderator"
       #can :new, :create, :update, :read, :all
       can :create, :all
       can :update, :all
       can :read, :all
       cannot :destroy, :all
-    elsif user.role.name == "editor"
+    elsif user.role.try(:name) == "editor"
       can :manage, :all
-      cannot :destroy, all
+      cannot :destroy, :all
     else
       can :read, :all
       can :new, :create, User
-      cannot :destroy, all
+      cannot :destroy, :all
 
-      if user.role.name == "author"
+      if user.role.try(:name) == "author"
         can :create, Article
         can :update, Article do |article|
           article.try(:user) == user

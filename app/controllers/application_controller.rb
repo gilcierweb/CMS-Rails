@@ -3,16 +3,16 @@ class ApplicationController < ActionController::Base
   # delegate :current_user, :user_signed_in?, :to => :user_session
   # helper_method :current_user, :user_signed_in?
 
-  # correção de bug cancancan
-  before_action do
-    resource = controller_path.singularize.gsub('/', '_').to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
-  end
-  # Catch all CanCan errors and alert the user of the exception
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, alert: exception.message
-  end
+  # # correção de bug cancancan
+  # before_action do
+  #   resource = controller_path.singularize.gsub('/', '_').to_sym
+  #   method = "#{resource}_params"
+  #   params[resource] &&= send(method) if respond_to?(method, true)
+  # end
+  # # Catch all CanCan errors and alert the user of the exception
+  # rescue_from CanCan::AccessDenied do |exception|
+  #   redirect_to root_url, alert: exception.message
+  # end
 
   # include TheRole::Controller
   # Prevent CSRF attacks by raising an exception.

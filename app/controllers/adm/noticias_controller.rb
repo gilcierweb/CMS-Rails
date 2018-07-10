@@ -1,9 +1,9 @@
 class Adm::NoticiasController < ApplicationController
   # before_action :require_authentication
   before_action :authenticate_user! #devise autheticação
+  before_action :set_adm_noticia, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource #metodo cancancan
   layout "adm_layout"
-  before_action :set_adm_noticia, only: [:show, :edit, :update, :destroy]
 
   # before_action :login_required, except: [:index, :show]
   # before_action :role_required,  except: [:index, :show]

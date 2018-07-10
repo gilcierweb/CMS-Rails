@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :role, class_name: "Auth::Role"
+  belongs_to :role, class_name: "Auth::Role", optional: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

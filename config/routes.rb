@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   #Rotas para admin
   namespace :adm do
+    root to: 'dashboard#index'
     get 'dashboard', to: 'dashboard#index'
     get 'galerias/imagem_capa/:id', to: 'galerias#imagem_capa'
     resources :banners
