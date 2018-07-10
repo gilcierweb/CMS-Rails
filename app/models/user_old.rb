@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   attr_accessor :remember_token
   belongs_to :role, class_name: "Auth::Role"
 

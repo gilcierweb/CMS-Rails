@@ -41,3 +41,16 @@ config/secrets.yml
 .rvmrc
 .idea/*
 
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

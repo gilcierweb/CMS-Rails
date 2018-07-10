@@ -1,4 +1,4 @@
-class CreateAdmNoticias < ActiveRecord::Migration
+class CreateAdmNoticias < ActiveRecord::Migration[5.2]
   def change
     create_table :adm_noticias do |t|
       t.string :titulo

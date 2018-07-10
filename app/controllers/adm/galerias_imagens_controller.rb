@@ -1,6 +1,6 @@
 class Adm::GaleriasImagensController < ApplicationController
   # before_action :require_authentication
-  before_action :authenticate_user! #devise autheticação
+  before_action :authenticate_user! #devise autheticação  
   load_and_authorize_resource #metodo cancancan
   layout "adm_layout"
   before_action :set_adm_galerias_imagem, only: [:show, :edit, :update, :destroy]

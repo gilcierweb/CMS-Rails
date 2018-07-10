@@ -1,4 +1,4 @@
-class CreateAdmGalerias < ActiveRecord::Migration
+class CreateAdmGalerias < ActiveRecord::Migration[5.2]
   def change
     create_table :adm_galerias do |t|
       t.string :titulo

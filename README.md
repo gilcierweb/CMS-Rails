@@ -76,6 +76,11 @@ rake db:seed
 rails generate rspec:install
 bundle exec rspec
 bundle exec rspec spec/models
+
+rails app:update
+
+bundle exec rails webpacker:install
+
 ```
 
 Observações:

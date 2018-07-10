@@ -1,4 +1,4 @@
-class Adm::Galeria < ActiveRecord::Base
+class Adm::Galeria < ApplicationRecord
   #o relacionamento tem que colocar o nome do model e não o nome da tabelas
   #no  has_many tem que ser o nome model no plural has_many  :galerias_imagens
   #no  belongs_to  tem que ser o nome model no singular belongs_to :galeria

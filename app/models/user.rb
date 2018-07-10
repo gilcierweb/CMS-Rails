@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   belongs_to :role, class_name: "Auth::Role"
 
   # Include default devise modules. Others available are:

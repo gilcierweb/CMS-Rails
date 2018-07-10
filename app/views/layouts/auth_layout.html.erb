@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ruby on Rails, GilcierWeb">
   <meta name="author" content="GilcierWeb - gilcierweb.com.br - gilcierweb@gmail.com">
-  <title>Cmsrails</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <title>Cmsrails</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 </head>
 <body>
 <div class="container">
@@ -25,10 +27,10 @@
       <section>
 
         <% flash.each do |key, value| %>
-            <div class="<%= flash_class(key) %> fade in">
-              <a href="#" class="close" data-dismiss="alert">&times;</a>
-              <%= value %>
-            </div>
+          <div class="<%= flash_class(key) %> fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <%= value %>
+          </div>
         <% end %>
 
         <%= yield %>
@@ -46,14 +48,15 @@
   </div>
 </div>
 <!--Scripts-->
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <% if (params[:action] == 'galeria_view') || (params[:action] == 'videos') %>
-    <%= javascript_include_tag '/assets/i18n/jquery.colorbox-pt-BR', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '/assets/i18n/jquery.colorbox-pt-BR', 'data-turbolinks-track': 'reload' %>
 <% end %>
 <% if content_for?(:js) %>
-    <script type="text/javascript">
-        <%= yield :js %>
-    </script>
+  <script type="text/javascript">
+      <%= yield :js %>
+  </script>
 <% end %>
 </body>
 </html>

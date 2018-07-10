@@ -1,4 +1,4 @@
-class Adm::Banner < ActiveRecord::Base
+class Adm::Banner < ApplicationRecord
 
  mount_uploader :imagem, BannerUploader # Tells rails to use this uploader for this model.
 
